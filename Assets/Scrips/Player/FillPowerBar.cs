@@ -4,15 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using CoreGame;
 
+/// <summary>
+///  Controla el llenado de la powerBar
+/// </summary>
 public class FillPowerBar : MonoBehaviour {
-
+    /// <summary>
+    /// Un slider que represente la PowerBar
+    /// </summary>
     [SerializeField]
     public Slider powerBar;
+    /// <summary>
+    /// Representa la velocidad a la que se va a mover la barra de poder
+    /// </summary>
     [Range(0f,50f)]
     [SerializeField]
-    float step;
+    private float step;
+    /// <summary>
+    /// Representa el valor de la barra de poder, donde el 0 es el minimo y 100 es el maximo
+    /// </summary>
     float powerBarValue = 0;
+    /// <summary>
+    /// Representa cuando el powerBarValue incrementa (True) o decrementa (False).
+    /// </summary>
     private bool increasing = true;
+    /// <summary>
+    /// Representa el valor powerBarValue al momento de soltar el boton.
+    /// </summary>
     [HideInInspector]
     public float finalPowerBarValue = 0;
 
@@ -22,7 +39,7 @@ public class FillPowerBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         if (Input.GetButtonDown("B_Button"))
         {
@@ -45,6 +62,9 @@ public class FillPowerBar : MonoBehaviour {
     /// <returns></returns>
     public float FinalPower()
     {
+        //debug
+        ///finalPowerBarValue = 40f;
+        //debug
         finalPowerBarValue = powerBarValue;
         SetPowerBarToZero();
         return finalPowerBarValue;

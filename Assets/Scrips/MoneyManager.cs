@@ -5,9 +5,18 @@ using UnityEngine.UI;
 
 namespace Money
 {
+    /// <summary>
+    /// Clase estatica que controla el dinero del juego y las actividades.
+    /// </summary>
     public static class MoneyManager
     {
+        /// <summary>
+        /// dinero total del juego
+        /// </summary>
         public static float TotalMoney = 0;
+        /// <summary>
+        /// dinero total de la actividad
+        /// </summary>
         public static float ActivityMoney = 0;
         
 

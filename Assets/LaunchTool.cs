@@ -3,33 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameTime;
 
-
+/// <summary>
+/// Controla el lanzamiento de las herramientas desde el personaje.
+/// </summary>
 public class LaunchTool : MonoBehaviour {
-
+    /// <summary>
+    /// Prefab de la herramienta a lanzar
+    /// </summary>
     [SerializeField]
     GameObject Tool;
+    /// <summary>
+    /// de este gameObject se toma la posicion desde la que se va a lanzar la herramienta
+    /// </summary>
     [SerializeField]
     GameObject Hand;
 
+    /// <summary>
+    /// Script para tomar el angulo de lanzamiento
+    /// </summary>
     public ShouderRotation shouderRotation;
+    /// <summary>
+    /// Script para tomar la fuerza del lanzamiento
+    /// </summary>
     public FillPowerBar fillPowerBar;
+    /// <summary>
+    /// Script para modificar las propiedades de la herramienta que va a ser lanzada
+    /// </summary>
     private ToolControl toolControl;
+    /// <summary>
+    /// Sprite de la primera herramienta para la seleccion de herramietas
+    /// </summary>
     public SpriteRenderer toolSelect0;
+    /// <summary>
+    /// Sprite de la segunda herramienta para la seleccion de herramietas
+    /// </summary>
     public SpriteRenderer toolSelect1;
+    /// <summary>
+    /// Sprite de la tercera herramienta para la seleccion de herramietas
+    /// </summary>
     public SpriteRenderer toolSelect2;
 
 
-
+    /// <summary>
+    /// Instancia de la herramienta activa
+    /// </summary>
     private GameObject activeTool;
 
 
-
+    /// <summary>
+    /// Representa si hay una herramienta activa en la mano del personaje
+    /// </summary>
     private bool isInHand ;
-
-    public float throwStrength = 100;
-
+    /// <summary>
+    /// Representa la fuerza del lanzamiento.
+    /// un valor de 20 resulto ser un buen valor para el tamanio del nivel
+    /// </summary>
+    public float throwStrength = 20;
+    /// <summary>
+    /// Representa el tipo de herramienta que se va a lanzar
+    /// </summary>
     private int toolType = 0;
 
+    /// <summary>
+    /// Colores para los selectores de herramientas.
+    /// Creo que esto es por mientras, remplazar luego por sprites?
+    /// </summary>
     private Color yellow = new Color(1,1,0);
     private Color blue = new Color(0, 0, 1);
     private Color green = new Color(0, 1, 0);
@@ -37,7 +75,13 @@ public class LaunchTool : MonoBehaviour {
     private Color alphaBlue = new Color(0, 0, 1, .3f);
     private Color alphaGreen = new Color(0, 1, 0, .3f);
 
-    public float gameTime = 30;
+    /// <summary>
+    /// Tiempo de juego en segundos
+    /// </summary>
+    public float gameTime = 60f;
+    /// <summary>
+    /// Controlador de tiempo
+    /// </summary>
     private TimeManager timeManager;
 
     // Use this for initialization
@@ -80,16 +124,20 @@ public class LaunchTool : MonoBehaviour {
             DestroyActiveTool();
             CreateTool();
         }
-
+    
 
         else if (Input.GetButtonUp("B_Button"))
         {
+            DestroyActiveTool();
+            CreateTool();
             isInHand = false;
+
             //Por alguna razon x y y van alrevez,
             float y = fillPowerBar.finalPowerBarValue * Mathf.Sin(shouderRotation.angle * Mathf.Deg2Rad);
             float x = fillPowerBar.finalPowerBarValue * Mathf.Cos(shouderRotation.angle * Mathf.Deg2Rad);
             print("Shoulder Angle = " + (shouderRotation.angle) + " PowerBarValue = " 
-                + fillPowerBar.finalPowerBarValue + "\n X : " + x + " Y : " + y);
+                + fillPowerBar.finalPowerBarValue + "\n X : " + x + " Y : " + y + 
+                "\n ThrowStrength : " + throwStrength);
             activeTool.GetComponent<Rigidbody2D>().AddForce(new Vector2(x,y) * throwStrength);
         }
 
@@ -100,6 +148,10 @@ public class LaunchTool : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Crea una herramienta y la pone el la mano, cambia las propiedades de la herramienta
+    /// dependiendo del toolType actual
+    /// </summary>
     void CreateTool()
     {
         isInHand = true;
@@ -108,11 +160,17 @@ public class LaunchTool : MonoBehaviour {
         toolControl.type = toolType;
     }
 
+    /// <summary>
+    /// Destruye la herramienta actual
+    /// </summary>
     void DestroyActiveTool()
     {
         Destroy(activeTool);
     }
 
+    /// <summary>
+    /// Cambia los colores del selector de herramientas dependiendo del toolType
+    /// </summary>
     private void ChangeToolSelectColor()
     {
         switch (toolType){

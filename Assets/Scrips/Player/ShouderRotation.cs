@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using CoreGame;
 
+/// <summary>
+/// Controla la rotacion del brazo/angulo de lanzamiento.
+/// </summary>
 public class ShouderRotation : MonoCollection<ShouderRotation> {
 
+    /// <summary>
+    /// Representa la nueva rotacion para el brazo
+    /// </summary>
     private Quaternion rotation;
+    /// <summary>
+    /// Representa el angulo del brazo
+    /// </summary>
     public float angle;
 
     //private Transform shouder;
-
-    float step = 99;
+    /// <summary>
+    /// Algo del step para el metodo de RotateTowards, 360 para que pueda rotar un maximo de 360
+    /// grados por step.
+    /// </summary>
+    float step = 360;
 
     // Use this for initialization
     void Start () {

@@ -2,26 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controla las propiedades de las herramientas
+/// </summary>
 public class ToolControl : MonoBehaviour
 {
-
+    /// <summary>
+    /// indica el tipo de herramienta:
+    /// 0 = llave
+    /// 1 = martillo
+    /// 2 = casco
+    /// </summary>
     [SerializeField]
     [Range(0, 2)]
     public int type = 0;
-    /*indica el tipo de herramienta:
-     0 = llave
-     1 = martillo
-     2 = casco
-     */
+    
+    /// <summary>
+    /// rigidbody2D de la herramienta
+    /// </summary>
     private Rigidbody2D rb;
+    /// <summary>
+    /// spriteRender de la herramieta
+    /// </summary>
     private SpriteRenderer sr;
 
+    /// <summary>
+    /// Masa de la herramienta azul
+    /// </summary>
     [SerializeField]
     private float blueMass = 1f;
+    /// <summary>
+    /// Masa de la herramienta amarilla
+    /// </summary>
     [SerializeField]
-    private float yellowMass = 2f;
+    private float yellowMass = 1.1f;
+    /// <summary>
+    /// Masa de la herramienta verde
+    /// </summary>
     [SerializeField]
-    private float greenMass = 0.5f;
+    private float greenMass = 0.8f;
 
 
 
@@ -40,7 +59,9 @@ public class ToolControl : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Cambia las propiedades de la herramienta dependiendo del type (Tipo de herramienta)
+    /// </summary>
     public void setProperties()
     {
         switch (type)
