@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameTime;
+using Money;
 
 /// <summary>
 /// Controla el lanzamiento de las herramientas desde el personaje.
@@ -68,12 +69,12 @@ public class LaunchTool : MonoBehaviour {
     /// Colores para los selectores de herramientas.
     /// Creo que esto es por mientras, remplazar luego por sprites?
     /// </summary>
-    private Color yellow = new Color(1,1,0);
-    private Color blue = new Color(0, 0, 1);
-    private Color green = new Color(0, 1, 0);
-    private Color alphaYellow = new Color(1, 1, 0, .3f);
-    private Color alphaBlue = new Color(0, 0, 1, .3f);
-    private Color alphaGreen = new Color(0, 1, 0, .3f);
+    private Color yellow = new Color(1,1,1);
+    private Color blue = new Color(1, 1, 1);
+    private Color green = new Color(1, 1, 1);
+    private Color alphaYellow = new Color(1, 1, 1, .3f);
+    private Color alphaBlue = new Color(1, 1, 1, .3f);
+    private Color alphaGreen = new Color(1, 1, 1, .3f);
 
     /// <summary>
     /// Tiempo de juego en segundos
@@ -145,6 +146,9 @@ public class LaunchTool : MonoBehaviour {
         if (timeManager.IsTimeOverUpdate())
         {
             //print("Time is OVER");
+            MoneyManager.EndActivity();
+            print(MoneyManager.TotalMoney);
+            GameManager.nextScene();
         }
     }
 
@@ -191,5 +195,4 @@ public class LaunchTool : MonoBehaviour {
                 break;
         }
     }
-
 }

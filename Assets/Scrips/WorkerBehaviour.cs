@@ -34,7 +34,7 @@ public class WorkerBehaviour : MonoBehaviour {
     /// <summary>
     /// Representa la cantidad de dinero de la actividad
     /// </summary>
-    public float activityMoney = 50f;
+    public float activityMoney = 60f;
     //private SpriteRenderer sr;
 
     /// <summary>
@@ -53,8 +53,13 @@ public class WorkerBehaviour : MonoBehaviour {
     [SerializeField]
     private Image toolImage;
 
-    
-    
+    private Sprite normalWorker;
+    [SerializeField]
+    private Sprite angryWorker;
+    [SerializeField]
+    private Sprite[] toolsSprites;
+
+
     /// <summary>
     /// representa lo lleno que esta la burbuja
     /// </summary>
@@ -64,6 +69,8 @@ public class WorkerBehaviour : MonoBehaviour {
         timeManager = new TimeManager(phaseTime / 4);
         //sr = GetComponent<SpriteRenderer>();
         textBubble.GetComponent<CanvasGroup>().alpha = 0;
+        MoneyManager.IniciateMoney();
+        normalWorker = GetComponent<SpriteRenderer>().sprite;
     }
 	
 	// Update is called once per frame
@@ -81,18 +88,22 @@ public class WorkerBehaviour : MonoBehaviour {
                 switch (typeWanted)
                 {
                     case 0:
-                        toolImage.GetComponent<Image>().color = Color.blue;
+                       // toolImage.color = Color.blue;
+                        toolImage.sprite = toolsSprites[0];
                         break;
                     case 1:
-                        toolImage.GetComponent<Image>().color = Color.yellow;
+                       // toolImage.color = Color.yellow;
+                        toolImage.sprite = toolsSprites[1];
                         break;
                     case 2:
-                        toolImage.GetComponent<Image>().color = Color.green;
+                        //toolImage.color = Color.green;
+                        toolImage.sprite = toolsSprites[2];
                         break;
                     default:
-                        toolImage.GetComponent<Image>().color = Color.black;
+                        toolImage.color = Color.black;
                         break;
                 }
+                GetComponent<SpriteRenderer>().sprite = normalWorker;
             }
             //si se acaba el tiempo del contador y se encuentra en el askingState
             else
@@ -171,6 +182,7 @@ public class WorkerBehaviour : MonoBehaviour {
         ComboManager.resetCombo();
         MoneyManager.AddActivityMoney(-activityMoney/2);
         //algo que represente que esta enojado
+        GetComponent<SpriteRenderer>().sprite = angryWorker;
     }
     /// <summary>
     /// Cuando el trabajador no resive una una herramienta a tiempo disminuye el dinero y reinicia el combo.
@@ -178,8 +190,9 @@ public class WorkerBehaviour : MonoBehaviour {
     private void MissedTool()
     {
         ComboManager.resetCombo();
-        MoneyManager.AddActivityMoney(-activityMoney / 5);
+        MoneyManager.AddActivityMoney(-activityMoney / 6);
         //algo que represente que esta enojado
+        GetComponent<SpriteRenderer>().sprite = angryWorker;
     }
 
     /// <summary>

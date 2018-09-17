@@ -42,6 +42,13 @@ public class ToolControl : MonoBehaviour
     [SerializeField]
     private float greenMass = 0.8f;
 
+    [SerializeField]
+    private Sprite tool0;
+    [SerializeField]
+    private Sprite tool1;
+    [SerializeField]
+    private Sprite tool2;
+
 
 
 
@@ -68,15 +75,18 @@ public class ToolControl : MonoBehaviour
         {
             case 0:
                 rb.mass = blueMass;
-                sr.color = new Color(0,0,255);  //blue
+                //sr.color = new Color(0,0,255);  //blue
+                sr.sprite = tool0;
                 break;
             case 1:
                 rb.mass = yellowMass;
-                sr.color = new Color(255, 255, 0);//yellow
+                //sr.color = new Color(255, 255, 0);//yellow
+                sr.sprite = tool1;
                 break;
             case 2:
                 rb.mass = greenMass;
-                sr.color = new Color(0, 255, 0); //green
+                //sr.color = new Color(0, 255, 0); //green
+                sr.sprite = tool2;
                 break;
 
         }
