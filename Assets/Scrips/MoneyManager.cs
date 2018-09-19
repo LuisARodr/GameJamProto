@@ -13,7 +13,7 @@ namespace Money
         /// <summary>
         /// dinero total del juego
         /// </summary>
-        public static float TotalMoney = 0;
+        public static float TotalMoney = 4000;
         /// <summary>
         /// dinero total de la actividad
         /// </summary>
@@ -23,10 +23,9 @@ namespace Money
         /// </summary>
         public static GameObject go;
         public static int day = 0;
-        ///public static float[] moneyByDay = new float[4];
-        public static float[] moneyByDay = { 350f,450f,656f,253f };
+        public static float[] moneyByDay = new float[4];
+        //public static float[] moneyByDay = { 350f,450f,656f,253f };
         public static float bonusMultiplier = 1.0f;
-
         /// <summary>
         /// Añade a la cantidad de dinero de la actividad actual, tambien refresca el contador de dinero de la pantalla.
         /// Para disminuir la cantidad de dinero usar un money negativo.

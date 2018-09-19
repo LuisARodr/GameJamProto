@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
-    public static int level = 1;                                  //Current level number, expressed in game as "Day 1".
+    public static int scene = 1;                                  //Current level number, expressed in game as "Day 1".
     public
 
     //Awake is always called before any Start functions
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                  break;
          }
          */
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(scene);
     }
 
     /// <summary>
@@ -61,15 +61,14 @@ public class GameManager : MonoBehaviour
     public static void nextScene()
     {
         //SceneManager.UnloadSceneAsync("ToolLevel1");
-        level += 1;
+        scene += 1;
         InitGame();
     }
 
-
-
-    //Update is called every frame.
-    void Update()
+    public static void goToScene(int sceneNumber)
     {
-
+        SceneManager.LoadScene(sceneNumber);
     }
+
+    
 }
