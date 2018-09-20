@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 109a22a43e3366248af4ad6fa8d32212
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "Jos\xE9_0"
+    21300002: "Jos\xE9_1"
+    21300004: "Jos\xE9_2"
+    21300006: "Jos\xE9_3"
+    21300008: "Jos\xE9_4"
+    21300010: "Jos\xE9_5"
+    21300012: "Jos\xE9_6"
+    21300014: "Jos\xE9_7"
+    21300016: "Jos\xE9_8"
+    21300018: "Jos\xE9_9"
+    21300020: "Jos\xE9_10"
+    21300022: "Jos\xE9_11"
+    21300024: "Jos\xE9_12"
+    21300026: "Jos\xE9_13"
+    21300028: "Jos\xE9_14"
+    21300030: "Jos\xE9_15"
+    21300032: "Jos\xE9_16"
+    21300034: "Jos\xE9_17"
+    21300036: "Jos\xE9_18"
+    21300038: "Jos\xE9_19"
+    21300040: "Jos\xE9_20"
+    21300042: "Jos\xE9_21"
+    21300044: "Jos\xE9_22"
+    21300046: "Jos\xE9_23"
+    21300048: "Jos\xE9_24"
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Jos\xE9_0"
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7505
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a706236bd9c880944bfaae0c723a92fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_1"
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 7505
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb0e423f006b9f41a09ef4813958085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_2"
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 7505
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc7dc252deab4242b9f2bcc652c1c0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_3"
+      rect:
+        serializedVersion: 2
+        x: 4658
+        y: 7505
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a4c205f0126354b88feee50914e6e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_4"
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5200ab76898936c41ae798d52e41e961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_5"
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732bafabc8858f8439a98664f84eddca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_6"
+      rect:
+        serializedVersion: 2
+        x: 3130
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2225d8df95a6a8b4cbf53d5e333d4347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_7"
+      rect:
+        serializedVersion: 2
+        x: 4658
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6891a9033316a4cbf12217497b7960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_8"
+      rect:
+        serializedVersion: 2
+        x: 6186
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9800e294fcc4ed499e5f1c2460a2a77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_9"
+      rect:
+        serializedVersion: 2
+        x: 7718
+        y: 5536
+        width: 1235
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3618a177c13cb2c4fb2ddbc9295ed25b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_10"
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2995
+        width: 2145
+        height: 2291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6243b46cd6c0b894aa732f6a5629914c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_11"
+      rect:
+        serializedVersion: 2
+        x: 2391
+        y: 2995
+        width: 2145
+        height: 2291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15219248b1eff0448a2720bbca7d5c4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_12"
+      rect:
+        serializedVersion: 2
+        x: 4663
+        y: 2995
+        width: 2145
+        height: 2291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1879018f9b23cec42b2428ef8b81e0bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_13"
+      rect:
+        serializedVersion: 2
+        x: 6930
+        y: 2995
+        width: 2145
+        height: 2291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a62031151fcd1459215f89762cbd1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_14"
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 2971
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb478b0df63b4794fb9ef7fcaa3bd3fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_15"
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 2983
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab96a6108feeacc4f9900655c6a2f03a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_16"
+      rect:
+        serializedVersion: 2
+        x: 2785
+        y: 2971
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0fabb3af40f57742ba19992c3e20510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_17"
+      rect:
+        serializedVersion: 2
+        x: 4211
+        y: 2983
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfda49b4faf18544f9eca5642ad8d465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_18"
+      rect:
+        serializedVersion: 2
+        x: 5052
+        y: 2971
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9310a0a9920be4c9d015e3e123b006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_19"
+      rect:
+        serializedVersion: 2
+        x: 6478
+        y: 2983
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1005686030d63440b4f787417b02dff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_20"
+      rect:
+        serializedVersion: 2
+        x: 7320
+        y: 2971
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18861bfc70c6250418ce8f9d04aa1e76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_21"
+      rect:
+        serializedVersion: 2
+        x: 8745
+        y: 2983
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78049b567d09e7d4ca70b3acd06b79b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_22"
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 489
+        width: 2145
+        height: 2291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9092ccda2f2f0524e83398532b55a755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_23"
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 480
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2a72f10df627c41aaaa89dab87f18a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Jos\xE9_24"
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 465
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0268346475ad1614c9c144acaa222d48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1c468b416ebf08249b5620c1c412b5e8
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

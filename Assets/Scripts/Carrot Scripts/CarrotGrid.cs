@@ -96,7 +96,7 @@ public class CarrotGrid : MonoBehaviour {
         totalTime -= Time.deltaTime;
         timeText.text = totalTime.ToString("00");
         if(totalTime <= 0) {
-            endText.gameObject.SetActive(true);
+            //endText.gameObject.SetActive(true);
             MoneyManager.EndActivity();
             GameManager.goToScene(16);//16 es el numero actual de la escena de transicion.
         }
