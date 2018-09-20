@@ -77,9 +77,7 @@ public class Car2D : MonoBehaviour
 
         //Metodo de desaceleracion, tiempopressactual 
          tiempoPressactual -= Time.deltaTime;
-        if (tiempoPressactual <=0){
-            
-            
+        if (tiempoPressactual <=0){  
             TPderrape -= Time.deltaTime;
             if (TPderrape < 0f)
             {
@@ -89,10 +87,7 @@ public class Car2D : MonoBehaviour
                 {
                     VelActual = 0f;
                 }
-            }
-           
-          
-          
+            } 
         }
         
         time.text = "" + (int) tiempo;
@@ -103,45 +98,24 @@ public class Car2D : MonoBehaviour
     void FixedUpdate()
     {
 
-        /*
-        rb2D.AddRelativeForce(Vector2.up * ComponentX, ForceMode2D.Impulse);
-        Vector2 clampVelocity = Vector2.ClampMagnitude(rb2D.velocity, maxVel);
-        /* 
-              rb2D.AddForce(Vector2.right * ComponentX, ForceMode2D.Impulse);
-        Vector2 clampVelocity = Vector2.ClampMagnitude(rb2D.velocity, maxVel);
-        rb2D.velocity = new Vector2( ground & ComponentX != 0f & rb2D.velocity.x != 0f ? 
-            clampVelocity.x : !ground & ComponentX != 0f ? clampVelocity.x : 0f, rb2D.velocity.y);
-        rb2D.velocity -= ComponentX == 0f ? ground.normal : Vector2.zero;
-         
-        
-
-        rb2D.velocity = new Vector2(ComponentX != 0f & rb2D.velocity.x != 0f ?
-
-            clampVelocity.x : ComponentX != 0f ? clampVelocity.x : 0f,
-                                    ComponentX != 0f & rb2D.velocity.y != 0f ?
-            clampVelocity.y : ComponentX != 0f ? clampVelocity.y : 0f);
-        //  Debug.Log(rb2D.velocity);
-      
-         */
-
         //Siempre se llama con la velocidad actual para saber si el carro se movera o no.
         Move2D(VelActual);
 
-        //Rota el carrito cuando se presiona el joystick  
+        //Rota el carrito cuando se presiona el joystick  o presionando Q o E
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false)
         {
 
             float izq = Controls.LeftHorizontal();
             rb2D.freezeRotation = true;
             //   Debug.Log("Palanca movida a x " + izq);
-            if (izq < 0)
-            {
-                anim.SetTrigger("PressE");
-                transform.Rotate(0, 0, Time.deltaTime * clockwise);
-            }
-            if (izq > 0)
+            if (izq < 0 || Input.GetKey(KeyCode.Q))
             {
                 anim.SetTrigger("PressQ");
+                transform.Rotate(0, 0, Time.deltaTime * clockwise);
+            }
+            if (izq > 0 || Input.GetKey(KeyCode.E))
+            {
+                anim.SetTrigger("PressE");
                 transform.Rotate(0, 0, Time.deltaTime * counterClockwise);
             }
         }
@@ -159,76 +133,44 @@ public class Car2D : MonoBehaviour
             tiempoPressactual = tiempoPress;
             TPderrape = VelxPress;
         }
-        
-        //Rota el carro con la E y la  Q.
-        if (Input.GetKey(KeyCode.E) )
-        {
-            anim.SetTrigger("PressE");
-            rb2D.freezeRotation = true;
-            transform.Rotate(0, 0, Time.deltaTime * counterClockwise);
-        }
-        else if (Input.GetKey(KeyCode.Q))
-        {
-            anim.SetTrigger("PressQ");
-            rb2D.freezeRotation = true;
-            transform.Rotate(0, 0, Time.deltaTime * clockwise);
-            
-        }
+
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-
-      
         int point = collision.name.IndexOf(":");
         int space = collision.name.IndexOf(" ");
-       // Debug.Log(collision.name+" L:"+ collision.name.Length);
-        //   Debug.Log("Inicio: " + collision.name[space + 1] + " Lenght:" + (point - 1 -  space));
-        // Debug.Log("Inicio2: " + collision.name[point + 1] + " Lenght2:" + (collision.name.Length - point-1));
-        //     Debug.Log(point+" "+space);
-
-
-
         
-     //Aqui realiza la accion para cada tipo de objeto podable. Los demas objetos no hacen nada por que no mas son obstaculos.
+     //Aqui realiza la accion para cada tipo de objeto podable. 
         if (collision.name.StartsWith("Cesped")) {
             int x = int.Parse(collision.name.Substring(space + 1, point - 1 - space));
             int y = int.Parse(collision.name.Substring(point + 1, collision.name.Length - point - 1));
 
-            //  Debug.Log(fgrid.grid[x, y]);
-
             Vector3 NuevaPos = fgrid.grid[x, y].transform.position;
             string NuevoNomb = fgrid.grid[x, y].name;
             Destroy(fgrid.grid[x, y]);
-        //        Debug.Log(collision.gameObject.name);
 
-                fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado"));
-                fgrid.grid[x, y].transform.position = NuevaPos;
-            fgrid.grid[x, y].name = "Cortado ";//+ NuevoNomb.Substring(space + 1, NuevoNomb.Length - 2 - space );
-            //  Debug.Log(fgrid.grid[
-            //     collision.name[6], collision.name[8]]);
-        //    dinero += scrPasto;
+            fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado"));
+            fgrid.grid[x, y].transform.position = NuevaPos;
+            fgrid.grid[x, y].name = "Cortado ";
+  
            MoneyManager.AddActivityMoney(scrPasto);
         }else if (collision.name.StartsWith("Perro"))
         {
             int x = int.Parse(collision.name.Substring(space + 1, point - 1 - space));
             int y = int.Parse(collision.name.Substring(point + 1, collision.name.Length - point - 1));
 
-            //  Debug.Log(fgrid.grid[x, y]);
-
             Vector3 NuevaPos = fgrid.grid[x, y].transform.position;
             string NuevoNomb = fgrid.grid[x, y].name;
             Destroy(fgrid.grid[x, y]);
-          //  Debug.Log(collision.gameObject.name);
 
             fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado2"));
             fgrid.grid[x, y].transform.position = NuevaPos;
-            fgrid.grid[x, y].name = "Cortado2 "; //+ NuevoNomb.Substring(space + 1, NuevoNomb.Length - 2 - space);
-            //  Debug.Log(fgrid.grid[
-            //     collision.name[6], collision.name[8]]);
-       //     dinero += scrPerro;
+            fgrid.grid[x, y].name = "Cortado2 "; 
+
 
           MoneyManager.AddActivityMoney(scrPerro);
         }
@@ -237,19 +179,14 @@ public class Car2D : MonoBehaviour
             int x = int.Parse(collision.name.Substring(space + 1, point - 1 - space));
             int y = int.Parse(collision.name.Substring(point + 1, collision.name.Length - point - 1));
 
-            //  Debug.Log(fgrid.grid[x, y]);
-
             Vector3 NuevaPos = fgrid.grid[x, y].transform.position;
             string NuevoNomb = fgrid.grid[x, y].name;
             Destroy(fgrid.grid[x, y]);
-          //  Debug.Log(collision.gameObject.name);
 
             fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado"));
             fgrid.grid[x, y].transform.position = NuevaPos;
-            fgrid.grid[x, y].name = "Cortado ";//+ NuevoNomb.Substring(space + 1, NuevoNomb.Length - 2 - space);
-            //  Debug.Log(fgrid.grid[
-            //     collision.name[6], collision.name[8]]);
-         //   dinero += scrFlor;
+            fgrid.grid[x, y].name = "Cortado ";
+ 
             MoneyManager.AddActivityMoney(scrFlor);
 
         }
@@ -267,26 +204,17 @@ public class Car2D : MonoBehaviour
         //Vector2 mov = Controls.LeftJoystick();
         rb2D.AddRelativeForce( Vector2.up * ComponentX2, ForceMode2D.Impulse);
 
-
         if(velActul > maxVel)
         {
             velActul = maxVel;
         }
         Vector2 clampVelocity = Vector2.ClampMagnitude(rb2D.velocity, velActul);
-        /* 
-              rb2D.AddForce(Vector2.right * ComponentX, ForceMode2D.Impulse);
-        Vector2 clampVelocity = Vector2.ClampMagnitude(rb2D.velocity, maxVel);
-        rb2D.velocity = new Vector2( ground & ComponentX != 0f & rb2D.velocity.x != 0f ? 
-            clampVelocity.x : !ground & ComponentX != 0f ? clampVelocity.x : 0f, rb2D.velocity.y);
-        rb2D.velocity -= ComponentX == 0f ? ground.normal : Vector2.zero;
-         
-         */
+ 
 
         rb2D.velocity = new Vector2(ComponentX2 != 0f & rb2D.velocity.x != 0f ?
-
-            clampVelocity.x : ComponentX2 != 0f ? clampVelocity.x : 0f,
-                                    ComponentX2 != 0f & rb2D.velocity.y != 0f ?
-            clampVelocity.y : ComponentX2 != 0f ? clampVelocity.y : 0f);
+        clampVelocity.x : ComponentX2 != 0f ? clampVelocity.x : 0f,
+        ComponentX2 != 0f & rb2D.velocity.y != 0f ?
+        clampVelocity.y : ComponentX2 != 0f ? clampVelocity.y : 0f);
         //  Debug.Log(rb2D.velocity);
         rb2D.velocity -= ComponentX2 == 0f ? rb2D.velocity : Vector2.zero;
         // Aqui se le agrega la velocidad por boton press a la velocidad actual

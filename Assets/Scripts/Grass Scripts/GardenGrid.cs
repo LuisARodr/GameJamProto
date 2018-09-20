@@ -30,38 +30,19 @@ public class GardenGrid : MonoBehaviour {
 
     private void Start()
     {
-
-
-
-
         grid = new GameObject[gridSizeX, gridSizeY];
-
-
         for (int i = 0; i < gridSizeX; i++)
         {
             for (int j = 0; j < gridSizeY; j++)
             {
                 grid[i, j] = Instantiate(Cesped);
-                grid[i, j].transform.position =
-                    transform.position + new Vector3(i * distanciaX, -j * distanciaY, 0);
+                grid[i, j].transform.position = transform.position + new Vector3(i * distanciaX, -j * distanciaY, 0);
                 grid[i, j].name = "Cesped " + i + ":" + j;
-
+         
             }
         }
         ObstaculoSet();
     }
-
-
-    void Awake() {
-
-    }
-
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-
 
     /// <summary>
     /// Este metodo es un "get" para los diferentes obstaculos u objetos. Cesped, Cortado1, Cortado2, Obstaculo1,Obstaculo2, Obstaculo3, Obstaculo4,Obstacul5.
@@ -78,29 +59,18 @@ public class GardenGrid : MonoBehaviour {
                 return Cortado;
             case "Cortado2":
                 return Cortado2;
-            case "Obstaculo1":
-                return FlorAzul;
-            case "Obstaculo2":
-                return Roca1;
-            case "Obstaculo3":
-                return Perro;
-            case "Obstaculo5":
-                return Fuente;
-
         }
 
         return new GameObject();
     }
 
-
     /// <summary>
     /// Este metodo sirve como complemento para agregar obstaculos a la grid/escenario del juego, ABC es numero de obstaculos en A, EN B y en C. Ej, 123. A(1), B(2), B(3)
     /// </summary>
-    /// <param name="ABC"></param>
 
     public void ObstaculoSet()
     {
-        Debug.Log(Random.Range(1, 5));
+        
         while (No_Flor > 0)
         {
             int r1 = Random.Range(3, gridSizeX - 3);
@@ -108,8 +78,7 @@ public class GardenGrid : MonoBehaviour {
             Destroy(grid[r1, r2]);
             grid[r1, r2] = Random.Range(1, 3) > 1 ? Random.Range(1, 3) > 1 ? Instantiate(FlorAzul) : Instantiate(FlorRosa) : Instantiate(FlorBlanca);
             grid[r1, r2].GetComponent<SpriteRenderer>().flipX = Random.Range(1, 3) > 1 ? true : false; 
-            grid[r1, r2].transform.position =  
-                new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
+            grid[r1, r2].transform.position =  new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
             grid[r1, r2].name = "Flores " + r1 + ":" + r2;
             No_Flor--;
         }
@@ -121,8 +90,7 @@ public class GardenGrid : MonoBehaviour {
 
             grid[r1, r2] = Random.Range(1,3) > 1 ? Instantiate(Roca1) : Instantiate(Roca2);
             grid[r1, r2].GetComponent<SpriteRenderer>().flipX = Random.Range(1, 3) > 1 ? true : false;
-            grid[r1, r2].transform.position =
-                new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
+            grid[r1, r2].transform.position =  new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
             grid[r1, r2].name = "Rocas " + r1 + ":" + r2;
             No_roca--;
         }
@@ -139,16 +107,6 @@ public class GardenGrid : MonoBehaviour {
             grid[r1, r2].name = "Perro " + r1 + ":" + r2;
             No_perro--;
         }
-        /*       while (No_columpio > 0)
-                {
-                    int r1 = Random.Range(3, gridSizeX - 3);
-                    int r2 = Random.Range(3, gridSizeY - 3);
-                    grid[r1, r2] = Instantiate(Columpio);
-                    grid[r1, r2].transform.position =
-                    new Vector3(r1 * distanciaX, - r2 * distanciaY,0);
-                    grid[r1, r2].name = "Columpio " + r1 + ":" + r2;
-                    No_columpio--;
-                }*/
         while (No_fuente > 0)
         {
                  
@@ -156,28 +114,21 @@ public class GardenGrid : MonoBehaviour {
             int r2 = Random.Range(3, gridSizeY - 3);
 
             
-
             for (int Rr1 = r1 - 1; Rr1 != r1 + 2; Rr1++)
             {
                 for (int Rr2 = r2 - 1; Rr2 != r2 + 2; Rr2++)
-                {
-
-                           
+                {  
                         Destroy(grid[Rr1, Rr2]);
                         grid[Rr1, Rr2] = Instantiate(Cesped);
                         grid[Rr1, Rr2].transform.position =
                         new Vector3(Rr1 * distanciaX, -Rr2 * distanciaY, 0);
                         grid[Rr1, Rr2].name = "Cesped " + Rr1 + ":" + Rr2;
-                            
-                           
                 }
             }
-                   
             Destroy(grid[r1, r2]);
             grid[r1, r2] = Instantiate(Fuente);
             grid[r1, r2].GetComponent<SpriteRenderer>().flipX = Random.Range(0, 2) > 1 ? true : false;
-            grid[r1, r2].transform.position =
-                new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
+            grid[r1, r2].transform.position = new Vector3(r1 * distanciaX, -r2 * distanciaY, 0);
             grid[r1, r2].name = "Fuente " + r1 + ":" + r2;
 
             No_fuente--;
@@ -187,13 +138,7 @@ public class GardenGrid : MonoBehaviour {
 
         
 
-
-          
-    public GameObject[,] gridz()
-    {
-        return grid;
-    }
-            
+    
     
 }
 

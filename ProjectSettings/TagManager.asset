@@ -46,6 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: NoUseLayer
+    uniqueID: 1228532141
+    locked: 0
+  - name: ObjectLayer
+    uniqueID: 933047497
+    locked: 0
   - name: CarritoLayer
     uniqueID: 2553516165
     locked: 0
@@ -138,7 +144,4 @@ TagManager:
     locked: 0
   - name: 6_Fence
     uniqueID: 1243096201
-    locked: 0
-  - name: Input
-    uniqueID: 933047497
     locked: 0
