@@ -148,7 +148,7 @@ public class LaunchTool : MonoBehaviour {
             //print("Time is OVER");
             MoneyManager.EndActivity();
             print(MoneyManager.TotalMoney);
-            GameManager.goToScene(16);//16 es el numero actual de la escena de transicion.
+            GameManager.goToScene(20);//16 es el numero actual de la escena de transicion.
         }
     }
 

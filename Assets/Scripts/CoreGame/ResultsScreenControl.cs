@@ -131,13 +131,13 @@ public class ResultsScreenControl : MonoBehaviour {
             buyItems();
             if (MoneyManager.TotalMoney < 0)
             {
-                GameManager.goToScene(17);//actualmente la escena de game over
+                GameManager.goToScene(21);//actualmente la escena de game over
             }
             else if(week<4)
                 GameManager.goToScene(2);//actualmente la escena de la casa
             else//go to final screen
             {
-                GameManager.goToScene(18);//actualmente la escena del final
+                GameManager.goToScene(22);//actualmente la escena del final
             }
         }
 

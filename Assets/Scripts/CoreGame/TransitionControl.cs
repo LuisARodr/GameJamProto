@@ -38,10 +38,10 @@ public class TransitionControl : MonoBehaviour {
                 GameManager.goToScene(12);
             }
             */
-            if (MoneyManager.day < 3)
+            if (MoneyManager.day < 4)
                 GameManager.nextScene();
             else 
-                GameManager.goToScene(15);//result screen
+                GameManager.goToScene(19);//result screen
         }
 	}
 

@@ -71,7 +71,7 @@ public class Car2D : MonoBehaviour
             tiempo = 0;
             VelActual = 0;
             MoneyManager.EndActivity();
-            GameManager.goToScene(16);//16 es el numero actual de la escena de transicion.
+            GameManager.goToScene(20);//16 es el numero actual de la escena de transicion.
 
         }
 

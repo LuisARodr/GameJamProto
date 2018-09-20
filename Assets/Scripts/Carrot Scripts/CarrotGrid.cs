@@ -98,7 +98,7 @@ public class CarrotGrid : MonoBehaviour {
         if(totalTime <= 0) {
             //endText.gameObject.SetActive(true);
             MoneyManager.EndActivity();
-            GameManager.goToScene(16);//16 es el numero actual de la escena de transicion.
+            GameManager.goToScene(20);//16 es el numero actual de la escena de transicion.
         }
         //Contar el tiempo para las zanahorias de oro
         goldenCarrotTime -= Time.deltaTime;

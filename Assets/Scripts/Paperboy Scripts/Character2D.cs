@@ -54,6 +54,7 @@ public class Character2D : MonoBehaviour {
         tiempoText.text = tiempo.ToString("00");
         if (tiempo < 0) {
             MoneyManager.EndActivity();
-		}
+            GameManager.goToScene(20);//20es el numero de la escena de transicion.
+        }
 	}
 }

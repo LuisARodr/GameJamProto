@@ -41,7 +41,7 @@ public class HouseControl : MonoBehaviour {
         }
         else if (Input.GetButtonUp("Start_Button"))
         {
-            GameManager.goToScene(16);//16 es el numero de escena actual de la escena de transicion
+            GameManager.goToScene(20);//16 es el numero de escena actual de la escena de transicion
         }
     }
 
