@@ -40,9 +40,105 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3429639205
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: CarritoLayer
     uniqueID: 2553516165
+    locked: 0
+  - name: 1_Carrot
+    uniqueID: 3221298981
+    locked: 0
+  - name: 1_Player
+    uniqueID: 3486620187
+    locked: 0
+  - name: 1_Squirrel
+    uniqueID: 2634280479
+    locked: 0
+  - name: 1_Carrot_pulled
+    uniqueID: 2144386733
+    locked: 0
+  - name: 1_Fence
+    uniqueID: 2309273543
+    locked: 0
+  - name: 2_Carrot
+    uniqueID: 386788277
+    locked: 0
+  - name: 2_Player
+    uniqueID: 2906940975
+    locked: 0
+  - name: 2_Squirrel
+    uniqueID: 3559498555
+    locked: 0
+  - name: 2_Carrot_pulled
+    uniqueID: 3338287457
+    locked: 0
+  - name: 2_Fence
+    uniqueID: 1802968615
+    locked: 0
+  - name: 3_Carrot
+    uniqueID: 2845358815
+    locked: 0
+  - name: 3_Player
+    uniqueID: 811164549
+    locked: 0
+  - name: 3_Squirrel
+    uniqueID: 2970082095
+    locked: 0
+  - name: 3_Carrot_pulled
+    uniqueID: 3608239375
+    locked: 0
+  - name: 3_Fence
+    uniqueID: 4096633369
+    locked: 0
+  - name: 4_Carrot
+    uniqueID: 903348619
+    locked: 0
+  - name: 4_Player
+    uniqueID: 2242227973
+    locked: 0
+  - name: 4_Squirrel
+    uniqueID: 3354898659
+    locked: 0
+  - name: 4_Carrot_pulled
+    uniqueID: 1588377371
+    locked: 0
+  - name: 4_Fence
+    uniqueID: 1898580609
+    locked: 0
+  - name: 5_Carrot
+    uniqueID: 3492384015
+    locked: 0
+  - name: 5_Player
+    uniqueID: 2388308971
+    locked: 0
+  - name: 5_Squirrel
+    uniqueID: 3039322149
+    locked: 0
+  - name: 5_Carrot_pulled
+    uniqueID: 2419687237
+    locked: 0
+  - name: 5_Fence
+    uniqueID: 1442724389
+    locked: 0
+  - name: 6_Carrot
+    uniqueID: 2690225729
+    locked: 0
+  - name: 6_Player
+    uniqueID: 941404913
+    locked: 0
+  - name: 6_Squirrel
+    uniqueID: 3216832295
+    locked: 0
+  - name: 6_Carrot_pulled
+    uniqueID: 2845469199
+    locked: 0
+  - name: 6_Fence
+    uniqueID: 1243096201
+    locked: 0
+  - name: Input
+    uniqueID: 933047497
     locked: 0

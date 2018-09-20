@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 
 namespace CoreGame {
-    namespace PlayerController { 
-    public  class Controls {
-        public Controls()
-            {
-             }
-            
+    public static class Controls {
         static bool LeftJoystickMoved;
         static bool RightJoystickMoved;
         static bool PadMoved;
@@ -253,25 +248,5 @@ namespace CoreGame {
             }
             return false;
         }
-            public static bool button_up_A
-            {
-                get { return Input.GetButtonUp("A_Button"); }
-            }
-            public static bool key_up_W
-            {
-                get { return Input.GetKeyUp(KeyCode.W); }
-            }
-            public static Vector2 Axis
-            {
-                get
-                {
-                    return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                }
-            }
-
-        }
-
-
     }
-
 }
