@@ -228,7 +228,7 @@ public class ResultsScreenControl : MonoBehaviour {
                 if (MoneyManager.TotalMoney - (float)expendingsListMoneyList[menuIndex] >= 0 || selectedMenu[menuIndex])
                 {
                     selectedMenu[menuIndex] = !selectedMenu[menuIndex];
-                    selectedMenuMark[menuIndex] = selectedMenu[menuIndex] ? "O" : "-";
+                    selectedMenuMark[menuIndex] = selectedMenu[menuIndex] ? "O" : " •";
                     MoneyManager.TotalMoney += selectedMenu[menuIndex] ? -(float)expendingsListMoneyList[menuIndex] :
                         (float)expendingsListMoneyList[menuIndex];
                 }
