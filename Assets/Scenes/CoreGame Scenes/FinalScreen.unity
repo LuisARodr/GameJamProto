@@ -587,10 +587,10 @@ MonoBehaviour:
   tombstone: {fileID: 21300000, guid: bb8e0ea637380374c875467510a8470f, type: 3}
   background: {fileID: 1991098679}
   backgroundSprites:
-  - {fileID: 21300000, guid: 7243a6345364962469b2c7513cf4c4a8, type: 3}
-  - {fileID: 21300000, guid: 7243a6345364962469b2c7513cf4c4a8, type: 3}
-  - {fileID: 21300000, guid: 7243a6345364962469b2c7513cf4c4a8, type: 3}
-  - {fileID: 21300000, guid: 7243a6345364962469b2c7513cf4c4a8, type: 3}
+  - {fileID: 21300000, guid: 079ee58931300cf4596624769988a930, type: 3}
+  - {fileID: 21300000, guid: d41705f284a537a49b96a6b7e4e394c1, type: 3}
+  - {fileID: 21300000, guid: 85c5ef229c20011408fc4611ce993c68, type: 3}
+  - {fileID: 21300000, guid: b9ef8657ecd4e6544acc6e07dd90c237, type: 3}
 --- !u!1 &1991098678
 GameObject:
   m_ObjectHideFlags: 0
