@@ -68,49 +68,49 @@ public class HouseControl : MonoBehaviour {
             else if(ResultsScreenControl.familyMembersAlive[0] || ResultsScreenControl.familyMembersAlive[1] || ResultsScreenControl.familyMembersAlive[2])
             {
                 //agregar saludo al inicio
-                if (ResultsScreenControl.familyMembersAlive[0]) 
+                if (ResultsScreenControl.familyMembersAlive[0])
                 {
                     letterText.text += "Hola Jose\n\n";
                 }
-                else 
+                else
                 {
                     letterText.text += "Hola papa\n\n";
                 }
                 //Si es la semana 1 se agrega
                 if (ResultsScreenControl.week == 0)
                 {
-                    letterText.text += "Nos alegra que ayas llegado \nbien a los yunaites.\n";
+                    letterText.text += "Nos alegra que hayas llegado \n bien a los yunaites.\n";
                 }
                 //semana 2 o mas
-                letterText.text += "Esperemos que juntes mucho \ndinero por el bien del familia.\n";
+                letterText.text += "Esperemos que juntes mucho \n dinero por el bien de la familia.\n";
                 //enviaste comida
-                if(ResultsScreenControl.foodMultiplier == 1)
+                if (ResultsScreenControl.foodMultiplier == 1)
                 {
-                    letterText.text += "Grasias por el dinero de la comida, con \nesto nos bamos a aventar unos buenos \ntacos de frijol, panela y una coquita.\n";
+                    letterText.text += "Gracias por el dinero de la comida, con \n esto nos vamos a aventar unos buenos \n tacos de frijol, panela y una coquita.\n";
                 }
                 else
                 {
-                    letterText.text += "No tenemos nada que comer, \nnos estamos muriendo de \nhambre, no nos sentimos muy bien.\n";
+                    letterText.text += "No tenemos nada que comer, \n nos estamos muriendo de \n hambre, no nos sentimos muy bien.\n";
                 }
                 //enviaste medicina
-                if (ResultsScreenControl.itemBought[2]) 
-                { 
-                    for (int i = 0; i < 5; i++) 
+                if (ResultsScreenControl.itemBought[2])
+                {
+                    for (int i = 0; i < 5; i++)
                     {
-                        if (ResultsScreenControl.healedFamilyMember[i]) 
+                        if (ResultsScreenControl.healedFamilyMember[i])
                         {
-                            letterText.text += "Grasias por enviar dinero para el simi, \n"+ResultsScreenControl.numberToFamilyMember(i)+" se siente mucho mejor.\n";
+                            letterText.text += "Gracias por enviar dinero para el simi, \n" + ResultsScreenControl.numberToFamilyMember(i) + " se siente mucho mejor.\n";
                             ResultsScreenControl.healedFamilyMember[i] = false;
                         }
                     }
                 }
                 //alguien muere
-                for(int i = 0; i<5; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     if (ResultsScreenControl.deadFlag[i])
                     {
-                        letterText.text += ResultsScreenControl.numberToFamilyMember(i)+
-                            " no lo logro, \ntubimos que enterrarlo en el patio, \nesperemos que esto no se repita.\n";
+                        letterText.text += ResultsScreenControl.numberToFamilyMember(i) +
+                            " no lo logro, \n tuvimos que enterrarlo en el patio, \n esperemos que esto no se repita.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
                 }
@@ -121,21 +121,21 @@ public class HouseControl : MonoBehaviour {
                     if (ResultsScreenControl.isSick[i])
                     {
                         letterText.text += ResultsScreenControl.numberToFamilyMember(i) +
-                            " se enfermo, no creo que lo logre \nsin unas medicinas del simi, por favor \nenvianos dinero antes que pase a peores.\n";
+                            " se enfermo, no creo que lo logre \n sin unas medicinas del simi, por favor \n envíanos dinero antes que pase a peores.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
                 }
 
                 //terminar la carta
-                if (ResultsScreenControl.familyMembersAlive[0]) 
+                if (ResultsScreenControl.familyMembersAlive[0])
                 {
                     letterText.text += "\nLupe";
                 }
-                else if (ResultsScreenControl.familyMembersAlive[2]) 
+                else if (ResultsScreenControl.familyMembersAlive[2])
                 {
                     letterText.text += "\nAnita";
                 }
-                else if (ResultsScreenControl.familyMembersAlive[1]) 
+                else if (ResultsScreenControl.familyMembersAlive[1])
                 {
                     letterText.text += "\nToñito";
                 }

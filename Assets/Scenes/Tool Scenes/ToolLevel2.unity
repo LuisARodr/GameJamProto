@@ -2340,7 +2340,7 @@ MonoBehaviour:
   toolSelect1: {fileID: 1454619136}
   toolSelect2: {fileID: 623452286}
   throwStrength: 20
-  gameTime: 5
+  gameTime: 60
   timeText: {fileID: 595311926}
 --- !u!114 &1860251811
 MonoBehaviour:
