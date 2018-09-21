@@ -33,7 +33,7 @@ namespace Money
         /// <param name="money">Cantidad de dinero a sumar </param>
         public static void AddActivityMoney(float money)
         {
-            ActivityMoney += money * bonusMultiplier;
+            ActivityMoney += money > 0 ? money * bonusMultiplier : money;
             RefeshCounter();
         }
         /// <summary>

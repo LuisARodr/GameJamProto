@@ -11,18 +11,22 @@ public class MoneyControl : MonoBehaviour {
 		if (collider.name.Equals ("newspaper")) {
 			switch (this.name) {
 			case "yellow house":
-                MoneyManager.AddActivityMoney(10f);
-				LaCasaRecibioDinero = true;
-				Debug.Log ("LE DISTE A LA CASA AMARILLA");
+                if(!LaCasaRecibioDinero) {
+                    MoneyManager.AddActivityMoney(10f);
+                    LaCasaRecibioDinero = true;
+                    Debug.Log("LE DISTE A LA CASA AMARILLA");
+                }
 				break;
 			case "red house":
                 MoneyManager.AddActivityMoney(-50f);
                 Debug.Log ("LE DISTE A LA CASA ROJA");
 				break;
 			case "mailbox":
-                MoneyManager.AddActivityMoney(30f);
-                LaCasaRecibioDinero = true;
-				Debug.Log ("LE DISTE AL BUZON");
+                if (!LaCasaRecibioDinero) {
+                    MoneyManager.AddActivityMoney(30f);
+                    LaCasaRecibioDinero = true;
+                    Debug.Log("LE DISTE AL BUZON");
+                }
 				break;
 			case "red mailbox":
                 MoneyManager.AddActivityMoney(-75f);

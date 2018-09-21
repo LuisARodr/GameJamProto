@@ -91,28 +91,23 @@ public class Car2D : MonoBehaviour
         
         time.text = tiempo.ToString("00");
 
-
-    }
-    void FixedUpdate()
-    {
-
+        ////////////////////////////////////////////////////////////////////////////
+        ////ESTO ESTABA EN EL FIXED UPDATE, PROFE, SI LO VE, CHINGUESE A LA CAJA////
+        ////////////////////////////////////////////////////////////////////////////
         //Siempre se llama con la velocidad actual para saber si el carro se movera o no.
         Move2D(VelActual);
 
         //Rota el carrito cuando se presiona el joystick  o presionando Q o E
-        if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false)
-        {
+        if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false) {
 
             float izq = Controls.LeftHorizontal();
             rb2D.freezeRotation = true;
             //   Debug.Log("Palanca movida a x " + izq);
-            if (izq < 0 || Input.GetKey(KeyCode.Q))
-            {
+            if (izq < 0 || Input.GetKey(KeyCode.Q)) {
                 anim.SetTrigger("PressQ");
                 transform.Rotate(0, 0, Time.deltaTime * clockwise);
             }
-            if (izq > 0 || Input.GetKey(KeyCode.E))
-            {
+            if (izq > 0 || Input.GetKey(KeyCode.E)) {
                 anim.SetTrigger("PressE");
                 transform.Rotate(0, 0, Time.deltaTime * counterClockwise);
             }
@@ -120,22 +115,17 @@ public class Car2D : MonoBehaviour
 
         //Aumenta la velocidad Actual cada vez que se presiona el Boton A o la tecla de W. Velocidad actual se le suma velocidad por presionado
         //eL Tiempo para presionar actual se reinicia al tiempo para presionar, al igual que el contador de desaceleracion
-        if (Input.GetButtonUp("A_Button") || Input.GetKeyUp(KeyCode.W))
-        {
-           // Debug.Log("Vel Actual!!!! " + VelActual);
+        if (Input.GetButtonUp("A_Button") || Input.GetKeyUp(KeyCode.W)) {
+            // Debug.Log("Vel Actual!!!! " + VelActual);
             VelActual += VelxPress;
-            if (VelActual > maxVel)
-            {
+            if (VelActual > maxVel) {
                 VelActual = maxVel;
             }
             tiempoPressactual = tiempoPress;
             TPderrape = VelxPress;
         }
-
     }
-
-
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         

@@ -80,7 +80,7 @@ public class ResultsScreenControl : MonoBehaviour {
             addSickExpenses();
         }
 
-        activityList.text = "Periodicos\nPodar\nContruccion\nCosecha";
+        activityList.text = "Construcción\nPodar\nCosecha\nPeriódicos";
         earningsList.text = "$ " + MoneyManager.moneyByDay[0].ToString("000.00") + "\n$ " +
             MoneyManager.moneyByDay[1].ToString("000.00") + "\n$ " + MoneyManager.moneyByDay[2].ToString("000.00") + "\n$ " +
             MoneyManager.moneyByDay[3].ToString("000.00");
@@ -109,7 +109,7 @@ public class ResultsScreenControl : MonoBehaviour {
         for (int i = 1; i < selectedMenu.Length; i++)
         {
             selectedMenu[i] = false;
-            selectedMenuMark[i] = "-";
+            selectedMenuMark[i] = " •";
         }
         selectedMenu[0] = true;
         selectedMenuMark[0] = "O";
@@ -192,12 +192,12 @@ public class ResultsScreenControl : MonoBehaviour {
         {
             if(menuIndex + 1 < menuSize)
             {
-                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y - 20f, 0);
+                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y - 21f, 0);
                 menuIndex++;
             }
             else
             {
-                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y + (20f * menuIndex), 0);
+                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y + (21f * menuIndex), 0);
                 menuIndex = 0;
             }
             
@@ -207,12 +207,12 @@ public class ResultsScreenControl : MonoBehaviour {
         {
             if ((menuIndex) > 0)
             {
-                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y + 20f, 0);
+                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y + 21f, 0);
                 menuIndex--;
             }
             else
             {
-                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y - (20f*(menuSize-1)), 0);
+                menuSelect.localPosition = new Vector3(menuSelect.localPosition.x, menuSelect.localPosition.y - (21f*(menuSize-1)), 0);
                 menuIndex = menuSize-1;
             }
                
@@ -421,7 +421,6 @@ public class ResultsScreenControl : MonoBehaviour {
             if (selectedMenu[i])
             {
                 sum += (float)expendingsListMoneyList[i];
-                
             }
         }
         return sum;

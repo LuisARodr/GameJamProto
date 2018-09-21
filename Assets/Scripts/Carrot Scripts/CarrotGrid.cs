@@ -36,7 +36,7 @@ public class CarrotGrid : MonoBehaviour {
 
     //GoldenCarrot
     float goldenCarrotTime, returnGoldenCarrotTime;
-    bool goldenCarrotActive;
+    bool goldenCarrotActive, playerIsPullingGoldenCarrot;
     int goldenCarrotPosX, goldenCarrotPosY;
 
     //Squirrel
@@ -102,11 +102,13 @@ public class CarrotGrid : MonoBehaviour {
         goldenCarrotTime -= Time.deltaTime;
         if(goldenCarrotTime <= 0f) {
             GoldenCarrot();
-            goldenCarrotTime = Mathf.Round(Random.Range(5, 8));
+            goldenCarrotTime = 100;
         }
         if(goldenCarrotActive) {
             //Contar el tiempo para que desaparezca la zanahoria de oro
-            returnGoldenCarrotTime -= Time.deltaTime;
+            if (!playerIsPullingGoldenCarrot) {
+                returnGoldenCarrotTime -= Time.deltaTime;
+            }
             if (returnGoldenCarrotTime < 0f) {
                 goldenCarrotTime = Mathf.Round(Random.Range(5, 8));
                 ReturnGoldenCarrot();
@@ -208,8 +210,13 @@ public class CarrotGrid : MonoBehaviour {
             grid[goldenCarrotPosX, goldenCarrotPosY].transform.position = transform.position + new Vector3(goldenCarrotPosX * 2.2f, -goldenCarrotPosY * 1.4f -.05f, 0);
             grid[goldenCarrotPosX, goldenCarrotPosY].GetComponent<SpriteRenderer>().sortingLayerName = (goldenCarrotPosY + 1) + "_Carrot";
 
+            playerIsPullingGoldenCarrot = false;
             returnGoldenCarrotTime = 4f;
         }
+    }
+
+    public void PlayerIsPullingGoldenCarrot(bool b) {
+        playerIsPullingGoldenCarrot = b;
     }
     /// <summary>
     /// La zanahoria de oro regresa a su estado normal ya que el jugador no fue rapido
@@ -221,6 +228,7 @@ public class CarrotGrid : MonoBehaviour {
         grid[goldenCarrotPosX, goldenCarrotPosY].name = "Carrot:" + goldenCarrotPosX + "," + goldenCarrotPosY;
         grid[goldenCarrotPosX, goldenCarrotPosY].transform.position = transform.position + new Vector3(goldenCarrotPosX * 2.2f, -goldenCarrotPosY * 1.4f -.1f, 0);
         goldenCarrotPosX = -1; goldenCarrotPosY = -1;
+        goldenCarrotTime = Mathf.Round(Random.Range(5, 8));
         return;
     }
     /// <summary>
@@ -233,6 +241,7 @@ public class CarrotGrid : MonoBehaviour {
         if (golden) {
             goldenCarrotActive = false;
             goldenCarrotPosX = -1; goldenCarrotPosY = -1;
+            goldenCarrotTime = Mathf.Round(Random.Range(5, 8));
         }
         Destroy(grid[x, y]);
         grid[x, y] = Instantiate(hole);

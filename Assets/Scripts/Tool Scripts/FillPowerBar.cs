@@ -16,7 +16,7 @@ public class FillPowerBar : MonoBehaviour {
     /// <summary>
     /// Representa la velocidad a la que se va a mover la barra de poder
     /// </summary>
-    [Range(0f,50f)]
+    [Range(0f,150f)]
     [SerializeField]
     private float step;
     /// <summary>
@@ -39,7 +39,7 @@ public class FillPowerBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
         if (Input.GetButtonDown("B_Button"))
         {
@@ -75,6 +75,7 @@ public class FillPowerBar : MonoBehaviour {
     /// </summary>
     private void ChangePowerBarFill()
     {
+        float step = this.step * Time.deltaTime;
         powerBarValue += increasing && powerBarValue + step <= 100f ? step : 
             increasing && powerBarValue + step > 100f ? 100f - powerBarValue:
             !increasing && powerBarValue - step >= 0f ? -step :

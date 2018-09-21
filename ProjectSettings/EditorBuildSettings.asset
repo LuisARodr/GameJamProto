@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: 2f9c386d6644c07479ae55f0b0a0e57c
   - enabled: 1
     path: Assets/Scenes/Carrot Scenes/Carrot_0.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 2d4bb4d3f5cdbed40ab561b0f8655fc3
   - enabled: 1
     path: Assets/Scenes/Paperboy Scenes/Paperboy_0.unity
     guid: 29d1b511f97664344b09e605b6cf9f97

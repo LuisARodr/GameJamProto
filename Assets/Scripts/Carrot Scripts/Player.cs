@@ -84,6 +84,7 @@ public class Player : MonoBehaviour {
                     //Empezar a sacar la zanahoria
                     playerAnimator.SetTrigger("StartPull");
                     carrotGrid.PullCarrot(playerPosX, playerPosY, currentInputPulls++);
+                    carrotGrid.PlayerIsPullingGoldenCarrot(collisionName.StartsWith("Golden") ? true : false);
                     //Termino de sacarla
                     if (currentInputPulls == 5) {
                         //Es normal
@@ -151,14 +152,15 @@ public class Player : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other) {
         if (!other.name.StartsWith("L")) {
             currentInputObject.SetActive(false);
-            currentInputPulls = 0;
             collisionStay = false;
             //Reinicia el contador de jaladas
+            currentInputPulls = 0;
             //Si es una zanahoria, regresarla a su posición inicial
             if (collisionName.StartsWith("Carrot") || collisionName.StartsWith("Golden")) {
                 playerAnimator.SetTrigger("ExitCarrot");
                 carrotGrid.ReturnCarrotToOriginalPosition(playerPosX, playerPosY);
-                carrotGrid.SortLayer("Carrot");
+                carrotGrid.SortLayer("_Carrot");
+                carrotGrid.PlayerIsPullingGoldenCarrot(false);
             }
         }
     }

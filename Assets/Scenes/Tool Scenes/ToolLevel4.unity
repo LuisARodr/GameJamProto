@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerBar: {fileID: 1984454812}
-  step: 3
+  step: 150
   finalPowerBarValue: 0
 --- !u!4 &2028009727
 Transform:

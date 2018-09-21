@@ -27,6 +27,7 @@ public class HouseControl : MonoBehaviour {
         ResultsScreenControl.killFamilyMember();
         ResultsScreenControl.sickRoll();
         UpdateLetter();
+        letterText.offsetZ = 1;
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class HouseControl : MonoBehaviour {
             int aux = newsPaper.GetComponent<SpriteRenderer>().sortingOrder;
             newsPaper.GetComponent<SpriteRenderer>().sortingOrder = letter.GetComponent<SpriteRenderer>().sortingOrder;
             letter.GetComponent<SpriteRenderer>().sortingOrder = aux;
-            letterText.offsetZ = letterVisibility ? -1 : 0;
+            letterText.offsetZ = letterVisibility ? -1 : 1;
         }
         else if (Input.GetButtonUp("Start_Button"))
         {
@@ -79,18 +80,18 @@ public class HouseControl : MonoBehaviour {
                 //Si es la semana 1 se agrega
                 if (ResultsScreenControl.week == 0)
                 {
-                    letterText.text += "Nos alegra que hayas llegado \n bien a los yunaites.\n";
+                    letterText.text += "Nos alegra que hayas llegado \nbien a los yunaites.\n";
                 }
                 //semana 2 o mas
-                letterText.text += "Esperemos que juntes mucho \n dinero por el bien de la familia.\n";
+                letterText.text += "Esperemos que juntes mucho \ndinero por el bien de la familia.\n";
                 //enviaste comida
                 if (ResultsScreenControl.foodMultiplier == 1)
                 {
-                    letterText.text += "Gracias por el dinero de la comida, con \n esto nos vamos a aventar unos buenos \n tacos de frijol, panela y una coquita.\n";
+                    letterText.text += "Gracias por el dinero de la comida, con \nesto nos vamos a aventar unos buenos \ntacos de frijol, panela y una coquita.\n";
                 }
                 else
                 {
-                    letterText.text += "No tenemos nada que comer, \n nos estamos muriendo de \n hambre, no nos sentimos muy bien.\n";
+                    letterText.text += "No tenemos nada que comer, \nnos estamos muriendo de \nhambre, no nos sentimos muy bien.\n";
                 }
                 //enviaste medicina
                 if (ResultsScreenControl.itemBought[2])
@@ -110,7 +111,7 @@ public class HouseControl : MonoBehaviour {
                     if (ResultsScreenControl.deadFlag[i])
                     {
                         letterText.text += ResultsScreenControl.numberToFamilyMember(i) +
-                            " no lo logro, \n tuvimos que enterrarlo en el patio, \n esperemos que esto no se repita.\n";
+                            " no lo logro, \ntuvimos que enterrarlo en el patio, \nesperemos que esto no se repita.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
                 }
@@ -121,7 +122,7 @@ public class HouseControl : MonoBehaviour {
                     if (ResultsScreenControl.isSick[i])
                     {
                         letterText.text += ResultsScreenControl.numberToFamilyMember(i) +
-                            " se enfermo, no creo que lo logre \n sin unas medicinas del simi, por favor \n envíanos dinero antes que pase a peores.\n";
+                            " se enfermo, no creo que lo logre \nsin unas medicinas del simi, por favor \nenvíanos dinero antes que pase a peores.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
                 }

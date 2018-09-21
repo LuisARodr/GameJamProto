@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using GameTime;
 using Money;
+using CoreGame.Combos;
 
 /// <summary>
 /// Controla el lanzamiento de las herramientas desde el personaje.
@@ -149,6 +150,7 @@ public class LaunchTool : MonoBehaviour {
         //hace algo si se acaba el tiempo
         if (timeManager.IsTimeOverUpdate())
         {
+            ComboManager.resetCombo();
             //print("Time is OVER");
             MoneyManager.EndActivity();
             print(MoneyManager.TotalMoney);
