@@ -56,40 +56,53 @@ public class HouseControl : MonoBehaviour {
             //si solo el perro esta vivo
             if(ResultsScreenControl.numberOfFamilyAlive == 1 && ResultsScreenControl.familyMembersAlive[4])
             {
-                letterText.text = "Guau guau";
+                letterText.text = "Guau guau\n\nGuau guau guau!\nGuauuuuuuuuuu...\nGuauuuuuuu...\nGuau guau guau, guau guau, guau.\n\nGuau.";
             }
             //si solo el bebe esta vivo o perro
             else if (ResultsScreenControl.familyMembersAlive[0] && !ResultsScreenControl.familyMembersAlive[1] && !ResultsScreenControl.familyMembersAlive[2]
                 && !ResultsScreenControl.familyMembersAlive[3])
             {
-                letterText.text = "*Garabatos de bebé en español*";
+                letterText.text = "asldkjf\n\nlkajsjnajs nkj nsdjfsdmujf\nlksdkfjnsdknm sdjhhf\njnfoskfj ouuhjsd iuhj sdoifj\n\nb3b3";
             }
             //si alguien mas esta vivo
-            else if(ResultsScreenControl.familyMembersAlive[0]|| ResultsScreenControl.familyMembersAlive[1]|| ResultsScreenControl.familyMembersAlive[2])
+            else if(ResultsScreenControl.familyMembersAlive[0] || ResultsScreenControl.familyMembersAlive[1] || ResultsScreenControl.familyMembersAlive[2])
             {
-                //semana 1
-                if(ResultsScreenControl.week == 0)
+                //agregar saludo al inicio
+                if (ResultsScreenControl.familyMembersAlive[0]) 
                 {
-                    letterText.text = "Que bueno que llegaste, \n esperamos que saques mucha pasta \n por el bien del familia.\n";
+                    letterText.text += "Hola Jose\n\n";
+                }
+                else 
+                {
+                    letterText.text += "Hola papa\n\n";
+                }
+                //Si es la semana 1 se agrega
+                if (ResultsScreenControl.week == 0)
+                {
+                    letterText.text += "Nos alegra que ayas llegado \nbien a los yunaites.\n";
                 }
                 //semana 2 o mas
-                else
-                {
-                    letterText.text = "Esperamos que saques mucha \n pasta por el bien del familia.\n";
-                }
+                letterText.text += "Esperemos que juntes mucho \ndinero por el bien del familia.\n";
                 //enviaste comida
                 if(ResultsScreenControl.foodMultiplier == 1)
                 {
-                    letterText.text += "Gracias por el dinero de la comida, con\n esto nos vamos a aventar unos buenos\n tacos de frijol.\n";
+                    letterText.text += "Grasias por el dinero de la comida, con \nesto nos bamos a aventar unos buenos \ntacos de frijol, panela y una coquita.\n";
                 }
                 else
                 {
-                    letterText.text += "Nos estamos muriendo de hambre, no\n nos sentimos muy bien.\n";
+                    letterText.text += "No tenemos nada que comer, \nnos estamos muriendo de \nhambre, no nos sentimos muy bien.\n";
                 }
                 //enviaste medicina
-                if (ResultsScreenControl.itemBought[2])
-                {
-                    letterText.text += "Gracias por enviar dinero para\n el simi, fulanito se siente mucho mejor.\n";
+                if (ResultsScreenControl.itemBought[2]) 
+                { 
+                    for (int i = 0; i < 5; i++) 
+                    {
+                        if (ResultsScreenControl.healedFamilyMember[i]) 
+                        {
+                            letterText.text += "Grasias por enviar dinero para el simi, \n"+ResultsScreenControl.numberToFamilyMember(i)+" se siente mucho mejor.\n";
+                            ResultsScreenControl.healedFamilyMember[i] = false;
+                        }
+                    }
                 }
                 //alguien muere
                 for(int i = 0; i<5; i++)
@@ -97,7 +110,7 @@ public class HouseControl : MonoBehaviour {
                     if (ResultsScreenControl.deadFlag[i])
                     {
                         letterText.text += ResultsScreenControl.numberToFamilyMember(i)+
-                            " no lo logro, lo enterramos\n en el patio, esperemos que esto no\n se repita.\n";
+                            " no lo logro, \ntubimos que enterrarlo en el patio, \nesperemos que esto no se repita.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
                 }
@@ -108,9 +121,23 @@ public class HouseControl : MonoBehaviour {
                     if (ResultsScreenControl.isSick[i])
                     {
                         letterText.text += ResultsScreenControl.numberToFamilyMember(i) +
-                            " se enfermó, no creo que\n lo logre sin unas medicinas del simi,\n por favor envianos dinero para el simi.\n";
+                            " se enfermo, no creo que lo logre \nsin unas medicinas del simi, por favor \nenvianos dinero antes que pase a peores.\n";
                         ResultsScreenControl.deadFlag[i] = false;
                     }
+                }
+
+                //terminar la carta
+                if (ResultsScreenControl.familyMembersAlive[0]) 
+                {
+                    letterText.text += "\nLupe";
+                }
+                else if (ResultsScreenControl.familyMembersAlive[2]) 
+                {
+                    letterText.text += "\nAnita";
+                }
+                else if (ResultsScreenControl.familyMembersAlive[1]) 
+                {
+                    letterText.text += "\nToñito";
                 }
             }
         }

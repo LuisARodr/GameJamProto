@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class TitleScreenControl : MonoBehaviour {
 
+    [SerializeField]
+    GameObject titleScreen;
+    bool firstStart;
+
 	// Use this for initialization
 	void Start () {
-		
+        firstStart = false;
 	}
 
     // Update is called once per frame
@@ -14,7 +18,13 @@ public class TitleScreenControl : MonoBehaviour {
     {
         if (Input.GetButtonUp("Start_Button"))
         {
-            GameManager.nextScene();
+            if (!firstStart) {
+                firstStart = true;
+                titleScreen.SetActive(false);
+            }
+            else {
+                GameManager.nextScene();
+            }
         }
     }
 

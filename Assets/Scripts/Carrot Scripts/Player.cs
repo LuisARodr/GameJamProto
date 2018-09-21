@@ -89,12 +89,12 @@ public class Player : MonoBehaviour {
                         //Es normal
                         if (collisionName.StartsWith("Carrot")) {
                             carrotGrid.DestroyCarrot(playerPosX, playerPosY, false);
-                            MoneyManager.AddActivityMoney(10f);
+                            MoneyManager.AddActivityMoney(20f);
                         }
                         //Es de oro
                         else {
                             carrotGrid.DestroyCarrot(playerPosX, playerPosY, true);
-                            MoneyManager.AddActivityMoney(30f);
+                            MoneyManager.AddActivityMoney(50f);
                         }
                     }
                 }

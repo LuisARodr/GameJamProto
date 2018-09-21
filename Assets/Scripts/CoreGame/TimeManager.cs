@@ -14,13 +14,19 @@ namespace GameTime
         /// tiempo restante
         /// </summary>
         float timer;
+        Text timeText;
 
         /// <summary>
         /// Inicializa TimeManager con la cantidad de tiempo del contador
         /// </summary>
         /// <param name="startingTime">Tiempo inicial en segundos </param>
-        public TimeManager(float startingTime)
+        public TimeManager(float startingTime, Text text)
         {
+            timeText = text;
+            timer = startingTime;
+        }
+
+        public TimeManager(float startingTime) {
             timer = startingTime;
         }
 
@@ -45,8 +51,7 @@ namespace GameTime
         /// </summary>
         public void UpdateTimer()
         {
-            GameObject go = GameObject.Find("Timer");
-            go.GetComponent<Text>().text = "    0:" + timer.ToString("00");
+            timeText.text = timer.ToString("00");
         }
 
         /// <summary>

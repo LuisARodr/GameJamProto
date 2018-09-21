@@ -13,7 +13,7 @@ namespace Money
         /// <summary>
         /// dinero total del juego
         /// </summary>
-        public static float TotalMoney = 4000;
+        public static float TotalMoney = 0;
         /// <summary>
         /// dinero total de la actividad
         /// </summary>
@@ -58,7 +58,7 @@ namespace Money
         private static void RefeshCounter()
         {
             //Debug.Log("hello");
-            go.GetComponent<Text>().text = "$ " + ActivityMoney.ToString("000.00");
+            go.GetComponent<Text>().text = "$ " + ActivityMoney.ToString("0000");
         }
         /// <summary>
         /// Cambia el go del contador de dinero al contador actual, se tiene que iniciar cada nueva escena,

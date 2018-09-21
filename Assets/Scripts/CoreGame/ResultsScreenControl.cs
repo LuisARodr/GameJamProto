@@ -35,6 +35,7 @@ public class ResultsScreenControl : MonoBehaviour {
     private readonly float[] medicineCost = {500f, 400f, 400f, 300f, 600f };
     public static int foodMultiplier = 1; 
     public static bool[] familyMembersAlive = { true, true, true, true, true };
+    public static bool[] healedFamilyMember = { false, false, false, false, false };
     public static int numberOfFamilyAlive = 5;
     public static int week = 0;
     /*
@@ -270,6 +271,7 @@ public class ResultsScreenControl : MonoBehaviour {
                     {
                         print("Curado");
                         isSick[familyMemberToNumber((string)expendingsListList[i])] = false;
+                        healedFamilyMember[familyMemberToNumber((string)expendingsListList[i])] = true;
                         itemBought[2] = true;
                     }
                     break;
@@ -328,19 +330,19 @@ public class ResultsScreenControl : MonoBehaviour {
         int number = 5;
         switch (family)
         {
-            case "Medicina(Esposa): ":
+            case "Medicina(Lupe): ":
                 number = 0;
                 break;
-            case "Medicina(Hijo): ":
+            case "Medicina(Toñito): ":
                 number = 1;
                 break;
-            case "Medicina(Hija): ":
+            case "Medicina(Anita): ":
                 number = 2;
                 break;
-            case "Medicina(Bebé): ":
+            case "Medicina(El bebe): ":
                 number = 3;
                 break;
-            case "Medicina(Perro): ":
+            case "Medicina(El perro): ":
                 number = 4;
                 break;
         }
@@ -354,19 +356,19 @@ public class ResultsScreenControl : MonoBehaviour {
         switch (index)
         {
             case 0:
-                member = "Esposa";
+                member = "Lupe";
                 break;
             case 1:
-                member = "Hijo";
+                member = "Toñito";
                 break;
             case 2:
-                member = "Hija";
+                member = "Anita";
                 break;
             case 3:
-                member = "Bebé";
+                member = "El bebe";
                 break;
             case 4:
-                member = "Perro";
+                member = "El perro";
                 break;
         }
 

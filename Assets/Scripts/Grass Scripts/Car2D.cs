@@ -28,15 +28,14 @@ public class Car2D : MonoBehaviour
     //Variables de score para lo que se puede podar
     [SerializeField]
     int scrFlor = 0, scrPerro = 0, scrPasto = 0;
-    int dinero = 0;
     
     //Tiempo que se le da al juego
-    float tiempo = 30f;
+    float tiempo = 60f;
     float ResVelActual;
     
     //Texto del tiempo y el dinero
     [SerializeField]
-    Text time, money;
+    Text time;
 
     //Velocidad que da cada presionada
     [SerializeField]
@@ -90,9 +89,8 @@ public class Car2D : MonoBehaviour
             } 
         }
         
-        time.text = "" + (int) tiempo;
-        money.text = "$" + dinero;
-        
+        time.text = tiempo.ToString("00");
+
 
     }
     void FixedUpdate()
@@ -220,8 +218,7 @@ public class Car2D : MonoBehaviour
         // Aqui se le agrega la velocidad por boton press a la velocidad actual
        
         //Aqui se resetea el timer de tiempo tiempopressactual
-
-      
+        
     }
  
     protected float ComponentX

@@ -31,7 +31,7 @@ public class CarrotGrid : MonoBehaviour {
 
     //Tiume 
     [SerializeField]
-    Text timeText, endText;
+    Text timeText;
     float totalTime;
 
     //GoldenCarrot
@@ -85,9 +85,8 @@ public class CarrotGrid : MonoBehaviour {
         goldenCarrotSprites = new Sprite[] { GoldenCarrot_0, GoldenCarrot_1, GoldenCarrot_2, GoldenCarrot_3, GoldenCarrot_4 };
 
         CreateObstacles();
-
-        //totalTime = 60f;
-        totalTime = 10f;
+        
+        totalTime = 60f;
         MoneyManager.IniciateMoney();
     }
 
@@ -96,7 +95,6 @@ public class CarrotGrid : MonoBehaviour {
         totalTime -= Time.deltaTime;
         timeText.text = totalTime.ToString("00");
         if(totalTime <= 0) {
-            //endText.gameObject.SetActive(true);
             MoneyManager.EndActivity();
             GameManager.goToScene(20);//16 es el numero actual de la escena de transicion.
         }

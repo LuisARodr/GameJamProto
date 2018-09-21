@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GameTime;
 using Money;
 
@@ -83,13 +84,16 @@ public class LaunchTool : MonoBehaviour {
     /// <summary>
     /// Controlador de tiempo
     /// </summary>
+    [SerializeField]
+    Text timeText;
     private TimeManager timeManager;
+
 
     // Use this for initialization
     void Start () {
         CreateTool();
         ChangeToolSelectColor();
-        timeManager = new TimeManager(gameTime);
+        timeManager = new TimeManager(gameTime, timeText);
     }
 	
 	// Update is called once per frame
