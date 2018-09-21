@@ -201,7 +201,7 @@ public class CarrotGrid : MonoBehaviour {
                 name = (string)carrotsInArea[carrotToDestroy];
                 goldenCarrotPosX = int.Parse(name.Substring(7, 1));
                 goldenCarrotPosY = int.Parse(name.Substring(9));
-            } while (goldenCarrotPosX == playerPosX && goldenCarrotPosY == playerPosY);
+            } while ((squirrelPosX == goldenCarrotPosX && squirrelPosY == goldenCarrotPosY) || (goldenCarrotPosX == playerPosX && goldenCarrotPosY == playerPosY));
             Destroy(grid[goldenCarrotPosX, goldenCarrotPosY]);
             grid[goldenCarrotPosX, goldenCarrotPosY] = Instantiate(goldenCarrot);
             grid[goldenCarrotPosX, goldenCarrotPosY].name = "Golden:" + goldenCarrotPosX + "," + goldenCarrotPosY;
