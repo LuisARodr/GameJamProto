@@ -59,6 +59,12 @@ public class WorkerBehaviour : MonoBehaviour {
     [SerializeField]
     private Sprite[] toolsSprites;
 
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioCoin;
+    [SerializeField]
+    AudioClip audioAnger;
 
     /// <summary>
     /// representa lo lleno que esta la burbuja
@@ -172,7 +178,7 @@ public class WorkerBehaviour : MonoBehaviour {
         
         MoneyManager.AddActivityMoney(activityMoney * comboMultiplier());
         ComboManager.addCombo();
-        
+        audioSource.PlayOneShot(audioCoin);
     }
     /// <summary>
     /// Cuando el trabajador resive una herramienta incorrecta disminuye el dinero y reinicia el combo.
@@ -183,6 +189,7 @@ public class WorkerBehaviour : MonoBehaviour {
         MoneyManager.AddActivityMoney(-activityMoney/2);
         //algo que represente que esta enojado
         GetComponent<SpriteRenderer>().sprite = angryWorker;
+        audioSource.PlayOneShot(audioAnger);
     }
     /// <summary>
     /// Cuando el trabajador no resive una una herramienta a tiempo disminuye el dinero y reinicia el combo.
@@ -193,6 +200,7 @@ public class WorkerBehaviour : MonoBehaviour {
         MoneyManager.AddActivityMoney(-activityMoney / 6);
         //algo que represente que esta enojado
         GetComponent<SpriteRenderer>().sprite = angryWorker;
+        audioSource.PlayOneShot(audioAnger);
     }
 
     /// <summary>

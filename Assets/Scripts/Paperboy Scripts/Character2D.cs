@@ -33,7 +33,6 @@ public class Character2D : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         MoneyManager.IniciateMoney();
-
     }
 
 	// Update is called once per frame
@@ -56,5 +55,7 @@ public class Character2D : MonoBehaviour {
             MoneyManager.EndActivity();
             GameManager.goToScene(20);//20es el numero de la escena de transicion.
         }
+
+
 	}
 }

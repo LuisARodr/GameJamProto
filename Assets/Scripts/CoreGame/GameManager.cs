@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     public static int scene = 1;                                  //Current level number, expressed in game as "Day 1".
-    public
+    
 
     //Awake is always called before any Start functions
-    void Awake()
+    public void Awake()
     {
         //Check if instance already exists
         if (instance == null)

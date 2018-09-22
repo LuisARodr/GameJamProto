@@ -6,8 +6,11 @@ using Money;
 public class MoneyControl : MonoBehaviour {
     
 	bool LaCasaRecibioDinero = false;
+    
+    [SerializeField]
+    AudioSource audioSource;
 
-	void OnTriggerEnter2D(Collider2D collider){
+    void OnTriggerEnter2D(Collider2D collider){
 		if (collider.name.Equals ("newspaper")) {
 			switch (this.name) {
 			case "yellow house":
@@ -15,6 +18,7 @@ public class MoneyControl : MonoBehaviour {
                     MoneyManager.AddActivityMoney(10f);
                     LaCasaRecibioDinero = true;
                     Debug.Log("LE DISTE A LA CASA AMARILLA");
+                    audioSource.Play();
                 }
 				break;
 			case "red house":
@@ -26,6 +30,7 @@ public class MoneyControl : MonoBehaviour {
                     MoneyManager.AddActivityMoney(30f);
                     LaCasaRecibioDinero = true;
                     Debug.Log("LE DISTE AL BUZON");
+                    audioSource.Play();
                 }
 				break;
 			case "red mailbox":

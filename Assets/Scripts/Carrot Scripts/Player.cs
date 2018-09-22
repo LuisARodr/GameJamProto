@@ -43,6 +43,11 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Text moneyText;
 
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioCoin, audioBoo, audioPull;
+
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
@@ -82,11 +87,13 @@ public class Player : MonoBehaviour {
                 //El input es el correcto
                 if (Input.GetButtonUp(currentInputString)) {
                     //Empezar a sacar la zanahoria
+                    if (currentInputPulls == 0) audioSource.PlayOneShot(audioPull);
                     playerAnimator.SetTrigger("StartPull");
                     carrotGrid.PullCarrot(playerPosX, playerPosY, currentInputPulls++);
                     carrotGrid.PlayerIsPullingGoldenCarrot(collisionName.StartsWith("Golden") ? true : false);
                     //Termino de sacarla
                     if (currentInputPulls == 5) {
+                        audioSource.PlayOneShot(audioCoin);
                         //Es normal
                         if (collisionName.StartsWith("Carrot")) {
                             carrotGrid.DestroyCarrot(playerPosX, playerPosY, false);
@@ -112,6 +119,7 @@ public class Player : MonoBehaviour {
                     if (Input.GetButtonUp(currentInputString)) {
                         playerAnimator.SetTrigger("Boo");
                         carrotGrid.SquirrelScared();
+                        audioSource.PlayOneShot(audioBoo);
                     }   
                 }
             }

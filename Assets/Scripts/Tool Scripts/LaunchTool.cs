@@ -21,6 +21,11 @@ public class LaunchTool : MonoBehaviour {
     [SerializeField]
     GameObject Hand;
 
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioWoosh;
+
     /// <summary>
     /// Script para tomar el angulo de lanzamiento
     /// </summary>
@@ -145,6 +150,8 @@ public class LaunchTool : MonoBehaviour {
                 + fillPowerBar.finalPowerBarValue + "\n X : " + x + " Y : " + y + 
                 "\n ThrowStrength : " + throwStrength);
             activeTool.GetComponent<Rigidbody2D>().AddForce(new Vector2(x,y) * throwStrength);
+
+            audioSource.PlayOneShot(audioWoosh);
         }
 
         //hace algo si se acaba el tiempo

@@ -55,6 +55,11 @@ public class CarrotGrid : MonoBehaviour {
     [SerializeField]
     GameObject horizontalObstacle, verticalObstacle;
     GameObject obstacle;
+    
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioGolden, audioSquirrelIn, audioSquirrelOut;
 
     // Use this for initialization
     void Start () {
@@ -158,6 +163,7 @@ public class CarrotGrid : MonoBehaviour {
             grid[squirrelPosX, squirrelPosY].GetComponent<CircleCollider2D>().enabled = false;
             squirrel.GetComponent<Animator>().SetTrigger("In");
             squirrel.GetComponent<SpriteRenderer>().sortingLayerName = (squirrelPosY + 1) + "_Squirrel";
+            audioSource.PlayOneShot(audioSquirrelIn);
 
             squirrelDisappearTime = 3f;
             squirrelCarrotPullTime = .2f;
@@ -177,6 +183,7 @@ public class CarrotGrid : MonoBehaviour {
         squirrel.GetComponent<Animator>().SetTrigger("Out");
         DestroyCarrot(squirrelPosX, squirrelPosY, false);
         MoneyManager.AddActivityMoney(-30f);
+        audioSource.PlayOneShot(audioSquirrelOut);
     }
     /// <summary>
     /// El jugador ahuyento a la ardilla
@@ -209,6 +216,7 @@ public class CarrotGrid : MonoBehaviour {
             grid[goldenCarrotPosX, goldenCarrotPosY].name = "Golden:" + goldenCarrotPosX + "," + goldenCarrotPosY;
             grid[goldenCarrotPosX, goldenCarrotPosY].transform.position = transform.position + new Vector3(goldenCarrotPosX * 2.2f, -goldenCarrotPosY * 1.4f -.05f, 0);
             grid[goldenCarrotPosX, goldenCarrotPosY].GetComponent<SpriteRenderer>().sortingLayerName = (goldenCarrotPosY + 1) + "_Carrot";
+            audioSource.PlayOneShot(audioGolden);
 
             playerIsPullingGoldenCarrot = false;
             returnGoldenCarrotTime = 4f;

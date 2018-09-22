@@ -52,6 +52,11 @@ public class Car2D : MonoBehaviour
     //Contador de desaceleracion
     float TPderrape;
 
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioFlower, audioPoorLittleDog;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -157,8 +162,9 @@ public class Car2D : MonoBehaviour
 
             fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado2"));
             fgrid.grid[x, y].transform.position = NuevaPos;
-            fgrid.grid[x, y].name = "Cortado2 "; 
+            fgrid.grid[x, y].name = "Cortado2 ";
 
+            audioSource.PlayOneShot(audioPoorLittleDog);
 
           MoneyManager.AddActivityMoney(scrPerro);
         }
@@ -174,7 +180,9 @@ public class Car2D : MonoBehaviour
             fgrid.grid[x, y] = Instantiate(fgrid.getGameObjectGardenGardin("Cortado"));
             fgrid.grid[x, y].transform.position = NuevaPos;
             fgrid.grid[x, y].name = "Cortado ";
- 
+
+            audioSource.PlayOneShot(audioFlower);
+
             MoneyManager.AddActivityMoney(scrFlor);
 
         }
