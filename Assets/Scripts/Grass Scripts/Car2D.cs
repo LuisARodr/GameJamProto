@@ -18,7 +18,7 @@ public class Car2D : MonoBehaviour
    
     //Maxima velocidad del carrita
     [SerializeField]
-    float maxVel = 5f;
+    float maxVel = 5f, cSpeed= .10f;
 
     //clockwise y counterclockwise para saber a donde rotar el carrito
     [SerializeField]
@@ -105,7 +105,13 @@ public class Car2D : MonoBehaviour
         //Rota el carrito cuando se presiona el joystick  o presionando Q o E
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false) {
 
+            
             float izq = Controls.LeftHorizontal();
+            if(Input.acceleration.x > cSpeed) {
+                izq += Input.acceleration.x * cSpeed;
+            }
+            
+            Debug.Log(Input.acceleration.x);
             rb2D.freezeRotation = true;
             //   Debug.Log("Palanca movida a x " + izq);
             if (izq < 0 || Input.GetKey(KeyCode.Q)) {
