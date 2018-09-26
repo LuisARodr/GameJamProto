@@ -24,11 +24,17 @@ public class ShouderRotation : MonoBehaviour {
     /// </summary>
     float step = 360;
 
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputsPressedB mobileInputs;
+
     // Use this for initialization
     void Start () {
         //shouder = gameObject.GetComponent<Transform>();
         angle = 90;
-	}
+
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputsPressedB>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,9 +48,11 @@ public class ShouderRotation : MonoBehaviour {
     /// </summary>
     private void setShouderRotation()
     {
-        if(Controls.LeftJoystick().y != 0 && Controls.LeftJoystick().x != 0)
+        //if(Controls.LeftJoystick().y != 0 && Controls.LeftJoystick().x != 0)
+        if(mobileInputs.Direction.y != 0 && mobileInputs.Direction.x != 0)
         {
-            angle = Mathf.Atan2(Controls.LeftJoystick().y, Controls.LeftJoystick().x) * Mathf.Rad2Deg;
+            //angle = Mathf.Atan2(Controls.LeftJoystick().y, Controls.LeftJoystick().x) * Mathf.Rad2Deg;
+            angle = Mathf.Atan2(mobileInputs.Direction.y, mobileInputs.Direction.x) * Mathf.Rad2Deg;
             //Debug.Log("zValue: " + angle);
             //Debug.Log("X y Y: " + Controls.LeftJoystick().x + " " + Controls.LeftJoystick().y);
             rotation = Quaternion.Euler(0, 0, angle);

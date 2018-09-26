@@ -18,7 +18,7 @@ public class Car2D : MonoBehaviour
    
     //Maxima velocidad del carrita
     [SerializeField]
-    float maxVel = 5f;
+    float maxVel = 5f, cSpeed = .10f;
 
     //clockwise y counterclockwise para saber a donde rotar el carrito
     [SerializeField]
@@ -56,6 +56,10 @@ public class Car2D : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]
     AudioClip audioFlower, audioPoorLittleDog;
+    
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputsWithoutJoystick mobileInputs;
 
     void Awake()
     {
@@ -63,10 +67,11 @@ public class Car2D : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         MoneyManager.IniciateMoney();
+
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputsWithoutJoystick>();
     }
     private void Update()
     {
-
         //Pues aqui esta el tiempo
         if (tiempo > 0) { tiempo -= Time.deltaTime;
         }else if(tiempo <= 0)
@@ -106,6 +111,10 @@ public class Car2D : MonoBehaviour
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false) {
 
             float izq = Controls.LeftHorizontal();
+            if (Input.acceleration.x > cSpeed || Input.acceleration.x < (-1 * cSpeed)) {
+                izq += Input.acceleration.x * cSpeed;
+            }
+
             rb2D.freezeRotation = true;
             //   Debug.Log("Palanca movida a x " + izq);
             if (izq < 0 || Input.GetKey(KeyCode.Q)) {
@@ -120,7 +129,7 @@ public class Car2D : MonoBehaviour
 
         //Aumenta la velocidad Actual cada vez que se presiona el Boton A o la tecla de W. Velocidad actual se le suma velocidad por presionado
         //eL Tiempo para presionar actual se reinicia al tiempo para presionar, al igual que el contador de desaceleracion
-        if (Input.GetButtonUp("A_Button") || Input.GetKeyUp(KeyCode.W)) {
+        if (Input.GetButtonUp("A_Button") || Input.GetKeyUp(KeyCode.W) || mobileInputs.AButton) {
             // Debug.Log("Vel Actual!!!! " + VelActual);
             VelActual += VelxPress;
             if (VelActual > maxVel) {

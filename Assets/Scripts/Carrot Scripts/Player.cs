@@ -48,12 +48,18 @@ public class Player : MonoBehaviour {
     [SerializeField]
     AudioClip audioCoin, audioBoo, audioPull;
 
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputs mobileInputs;
+
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         carrotGrid = carrotGridObject.GetComponent<CarrotGrid>();
         currentInputSR = currentInputObject.GetComponent<SpriteRenderer>();
+
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputs>();
     }
 
     // Use this for initialization
@@ -66,7 +72,8 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate() {
         //Caminar
-        Vector2 leftJoystick = Controls.LeftJoystick();
+        //Vector2 leftJoystick = Controls.LeftJoystick();
+        Vector2 leftJoystick = mobileInputs.Direction;
         playerRigidBody.velocity = new Vector2(leftJoystick.x, leftJoystick.y) * moveSpeed;
         playerAnimator.SetFloat("Velocity", Mathf.Abs(leftJoystick.x) + Mathf.Abs(leftJoystick.y));
         //Flipear el sprite
@@ -85,7 +92,12 @@ public class Player : MonoBehaviour {
             //Es una zanahoria
             if (collisionName.StartsWith("Carrot") || collisionName.StartsWith("Golden")) {
                 //El input es el correcto
-                if (Input.GetButtonUp(currentInputString)) {
+                if (   Input.GetButtonUp(currentInputString) 
+                    || (currentInputString == "A_Button" && mobileInputs.AButton) 
+                    || (currentInputString == "B_Button" && mobileInputs.BButton)
+                    || (currentInputString == "X_Button" && mobileInputs.XButton)
+                    || (currentInputString == "Y_Button" && mobileInputs.YButton) ) {
+                    Debug.Log("Input correcto!");
                     //Empezar a sacar la zanahoria
                     if (currentInputPulls == 0) audioSource.PlayOneShot(audioPull);
                     playerAnimator.SetTrigger("StartPull");
@@ -116,7 +128,11 @@ public class Player : MonoBehaviour {
                 //Es una ardilla
                 if (collisionName.StartsWith("S")) {
                     //Ahuyentarla
-                    if (Input.GetButtonUp(currentInputString)) {
+                    if (   Input.GetButtonUp(currentInputString)
+                        || (currentInputString == "A_Button" && mobileInputs.AButton)
+                        || (currentInputString == "B_Button" && mobileInputs.BButton)
+                        || (currentInputString == "X_Button" && mobileInputs.XButton)
+                        || (currentInputString == "Y_Button" && mobileInputs.YButton)) {
                         playerAnimator.SetTrigger("Boo");
                         carrotGrid.SquirrelScared();
                         audioSource.PlayOneShot(audioBoo);

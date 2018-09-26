@@ -32,24 +32,28 @@ public class FillPowerBar : MonoBehaviour {
     /// </summary>
     [HideInInspector]
     public float finalPowerBarValue = 0;
+    
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputsPressedB mobileInputs;
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputsPressedB>();
+    }
 
-        if (Input.GetButtonDown("B_Button"))
+    // Update is called once per frame
+    void Update() {
+
+        if (Input.GetButtonDown("B_Button") || mobileInputs.BButtonBegan)
         {
             SetPowerBarToZero();
         }
-        else if (Input.GetButton("B_Button"))
+        else if (Input.GetButton("B_Button") || mobileInputs.BButtonDown)
         {
             ChangePowerBarFill();
         }
-        else if (Input.GetButtonUp("B_Button"))
+        else if (Input.GetButtonUp("B_Button") || mobileInputs.BButtonUp)
         {
             Debug.Log("Poder Final = " + FinalPower());
         }

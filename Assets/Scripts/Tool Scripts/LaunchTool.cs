@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using GameTime;
 using Money;
 using CoreGame.Combos;
+using CoreGame;
 
 /// <summary>
 /// Controla el lanzamiento de las herramientas desde el personaje.
@@ -93,10 +94,14 @@ public class LaunchTool : MonoBehaviour {
     [SerializeField]
     Text timeText;
     private TimeManager timeManager;
-
+    
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputsPressedB mobileInputs;
 
     // Use this for initialization
     void Start () {
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputsPressedB>();
         CreateTool();
         ChangeToolSelectColor();
         timeManager = new TimeManager(gameTime, timeText);
@@ -112,32 +117,32 @@ public class LaunchTool : MonoBehaviour {
             //print("hullo?");
         }
 
-        if (Input.GetButtonDown("Y_Button"))
+        if (Input.GetButtonDown("Y_Button") || mobileInputs.YButton)
         {
             toolType = 1;
             ChangeToolSelectColor();
         }
 
-        else if (Input.GetButtonDown("X_Button"))
+        else if (Input.GetButtonDown("X_Button") || mobileInputs.XButton)
         {
             toolType = 0;
             ChangeToolSelectColor();
         }
 
-        else if (Input.GetButtonDown("A_Button"))
+        else if (Input.GetButtonDown("A_Button") || mobileInputs.AButton)
         {
             toolType = 2;
             ChangeToolSelectColor();
         }
 
-        else if (Input.GetButtonDown("B_Button"))
+        else if (Input.GetButtonDown("B_Button") || mobileInputs.BButtonBegan)
         {
             //DestroyActiveTool();
             CreateTool();
         }
     
 
-        else if (Input.GetButtonUp("B_Button"))
+        else if (Input.GetButtonUp("B_Button") || mobileInputs.BButtonUp)
         {
             DestroyActiveTool();
             CreateTool();

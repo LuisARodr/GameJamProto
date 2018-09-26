@@ -15,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Joystick
+  - Step
   - 
   - 
   - 
@@ -147,4 +147,7 @@ TagManager:
     locked: 0
   - name: Input
     uniqueID: 850410535
+    locked: 0
+  - name: Joystick
+    uniqueID: 1984505721
     locked: 0

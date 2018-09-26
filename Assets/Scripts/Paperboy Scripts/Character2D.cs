@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Money;
+using CoreGame;
 
 public class Character2D : MonoBehaviour {
 
@@ -16,12 +17,18 @@ public class Character2D : MonoBehaviour {
 
     [SerializeField]
     Text tiempoText;
+    
+    [SerializeField]
+    GameObject mobileInputsObject;
+    MobileInputsWithoutJoystick mobileInputs;
 
-	void Awake () {
+    void Awake () {
 		anim = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		tiempo = 60;
-	}
+
+        mobileInputs = mobileInputsObject.GetComponent<MobileInputsWithoutJoystick>();
+    }
 
 	Vector2 Axis{
 		get
@@ -38,7 +45,7 @@ public class Character2D : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		anim.SetFloat("Move",Mathf.Abs(rb2d.velocity.x));
-		if (Input.GetButtonUp("A_Button")) {
+		if (mobileInputs.AButton) {
 			rb2d.velocity += new Vector2 (3f, 0f);
 		}
 		contador -= Time.deltaTime;

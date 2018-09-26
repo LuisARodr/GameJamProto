@@ -9,7 +9,7 @@ public class MoneyControl : MonoBehaviour {
     
     [SerializeField]
     AudioSource audioSource;
-
+    
     void OnTriggerEnter2D(Collider2D collider){
 		if (collider.name.Equals ("newspaper")) {
 			switch (this.name) {
