@@ -127,7 +127,7 @@ public class ResultsScreenControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if (Input.GetButtonUp("Start_Button"))//aqui hace todo lo de cuando se acaba esta pantalla.
+        if (Input.GetButtonUp("Start_Button") || (Input.touchCount == 3 && Input.GetTouch(2).phase == TouchPhase.Began))//aqui hace todo lo de cuando se acaba esta pantalla.
         {
             buyItems();
             if (MoneyManager.TotalMoney < 0)
@@ -142,12 +142,12 @@ public class ResultsScreenControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonUp("A_Button"))
+        if (Input.GetButtonUp("A_Button") || (Input.touchCount == 2 && Input.GetTouch(1).phase == TouchPhase.Began))
         {
             SelectExpend();
         }
 
-        else if (Input.GetButtonUp("B_Button"))
+        else if (Input.GetButtonUp("B_Button") || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             //menuSelect.position.y += 50f;
             moveMenu(0);

@@ -110,11 +110,17 @@ public class Car2D : MonoBehaviour
         //Rota el carrito cuando se presiona el joystick  o presionando Q o E
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false) {
 
+            
             float izq = Controls.LeftHorizontal();
             if (Input.acceleration.x > cSpeed || Input.acceleration.x < (-1 * cSpeed)) {
                 izq += Input.acceleration.x * cSpeed;
             }
-
+            
+            if(Input.acceleration.x > cSpeed) {
+                izq += Input.acceleration.x * cSpeed;
+            }
+            
+            Debug.Log(Input.acceleration.x);
             rb2D.freezeRotation = true;
             //   Debug.Log("Palanca movida a x " + izq);
             if (izq < 0 || Input.GetKey(KeyCode.Q)) {

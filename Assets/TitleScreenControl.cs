@@ -16,7 +16,7 @@ public class TitleScreenControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonUp("Start_Button"))
+        if (Input.GetButtonUp("Start_Button") || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             if (!firstStart) {
                 firstStart = true;

@@ -1425,7 +1425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ingresos\nMedicina(El bebe)\nasd\nMedicina(To\xF1ito)\nMedicina(El perro)\nasd\nasd"
+  m_Text: "Ingresos\nMedicina(El bebe)\nComida\nMedicina(To\xF1ito)\nMedicina(El perro)\nasd\nasd"
 --- !u!222 &1295326578
 CanvasRenderer:
   m_ObjectHideFlags: 0

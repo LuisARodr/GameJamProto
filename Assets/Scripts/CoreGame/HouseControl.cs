@@ -32,7 +32,7 @@ public class HouseControl : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetButtonUp("Y_Button"))
+        if (Input.GetButtonUp("Y_Button") || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             letterVisibility = !letterVisibility;
             int aux = newsPaper.GetComponent<SpriteRenderer>().sortingOrder;
@@ -40,7 +40,7 @@ public class HouseControl : MonoBehaviour {
             letter.GetComponent<SpriteRenderer>().sortingOrder = aux;
             letterText.offsetZ = letterVisibility ? -1 : 1;
         }
-        else if (Input.GetButtonUp("Start_Button"))
+        else if (Input.GetButtonUp("Start_Button") || (Input.touchCount == 2 && Input.GetTouch(1).phase == TouchPhase.Began))
         {
             GameManager.goToScene(20);//16 es el numero de escena actual de la escena de transicion
         }
